@@ -12,7 +12,7 @@ Alzheimer's disease is a neurodegenerative disease that usually starts slowly an
 A hand drawn clock image from CDT (Score 4)
 </p>
 <p align="justify">
-In our dataset, the scores awarded range from 0 (not recognizable as a clock) to 5 (accurate description). A qualified doctor then examines the drawing for the signs of dementia. The results from cognitive assessments by CDT are used to diagnose underlying cognitive disabilities, including Alzheimer’s disease.</p>
+In our dataset, the scores awarded range from 0 (not recognizable as a clock) to 5 (accurate description). A qualified doctor then examines the drawing for the signs of dementia. The results from cognitive assessments by CDT are used to diagnose underlying cognitive disabilities, including Alzheimer’s disease. Currently, there's no cure for Alzheimer's. However the hope is, using screening tools such as CDT, we could detect the disease in its earliest stages, before irreversible brain damage or mental decline has occurred.</p>
 
 ### Problem Definition
 
