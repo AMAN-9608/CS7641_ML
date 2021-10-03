@@ -4,20 +4,19 @@
 
 ### Introduction
 <p align="justify">
-Alzheimer's disease is a neurodegenerative disease that usually starts slowly and progressively worsens and is the most common cause of dementia, a general term for memory loss and other cognitive abilities serious enough to interfere with daily life. The Clock Drawing Test (CDT) is a simple test to detect signs of dementia. In this test the patient is asked to draw an analog clock with hands on the clock indicating ‘ten minutes past 11 o’clock.’ The test can be done on a blank paper or on a paper with a pre-drawn circle. This single test may be sensitive to dementia because it involves many cognitive areas that can be affected by dementia, including executive function, visuospatial abilities, motor programming, attention, and concentration.</p>
+Pneumonia is an infection of one or both of the lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects about 450 million people globally (7% of the population) and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is one such screening technique, which may help confirm the diagnosis.</p>
 <p align="center">
-  <img width="225" height="196" src="https://d3000t1r8yrm6n.cloudfront.net/uploads/ckeditor/pictures/236/image.png">
+  <img width="300" height="196" src="https://miro.medium.com/max/1400/1*caVi5_pTsarvYlqkarijOg.png">
 </p>
 <p align = "center">
-A hand drawn clock image from CDT (Score 4)
+Illustrative Example of Chest X-Ray in Patients without Pneumonia (left) and with Pneumonia (right)
 </p>
 <p align="justify">
-In our dataset, the scores awarded range from 0 (not recognizable as a clock) to 5 (accurate description). A qualified doctor then examines the drawing for the signs of dementia. Due to the subjectivity and manual bias of interpretations, the test results are not widely comparable. The current need is to establish a simple, automated, and objective screening technique which can adapt to a range of health and social service settings and would enable early detection.</p>
+A qualified doctor then examines the X-ray for the signs of Pneumonia. Due to the subjectivity and manual bias of interpretations, the test results are not widely comparable. The current need is to establish a simple, automated, and objective screening technique which can adapt to a range of health and social service settings and would enable early detection of Pneumonia.</p>
 
 ### Problem Definition
 <p align="justify">
-The problem statement is to use the features extracted from the CDT to build a machine learning algorithm to predict whether the patient is in one of three phases: Pre-Alzheimer’s (Early Warning), Post-Alzheimer’s (Detection), or Normal (Not an Alzheimer’s patient).
-</p>
+The problem statement is to build a machine learning algorithm that accurately predicts whether the patient has Pnuemonia or not, based on their Chest X-ray.</p>
 
 ### Methods
 
