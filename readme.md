@@ -6,7 +6,9 @@
 
 <p align="center">
   <img width="225" height="196" src="https://d3000t1r8yrm6n.cloudfront.net/uploads/ckeditor/pictures/236/image.png">
-  asdasdasd
+</p>
+<p align = "center">
+A hand drawn clock image from CDT (Score 4)
 </p>
 
 ### Problem Definition
