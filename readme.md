@@ -3,7 +3,6 @@
 ## Project Group 14: Amandeep Singh, Rajan V Tayal, Sai Shanbhag, Siddharth Sen, Yinghao Li
 
 ### Introduction
-<font size="1"> your text </font>
 <p align="justify">
 Alzheimer's disease is a neurodegenerative disease that usually starts slowly and progressively worsens and is the most common cause of dementia, a general term for memory loss and other cognitive abilities serious enough to interfere with daily life. The Clock Drawing Test (CDT) is a simple test to detect signs of dementia. In this test the patient is asked to draw an analog clock with hands on the clock indicating ‘ten minutes past 11 o’clock.’ The test can be done on a blank paper or on a paper with a pre-drawn circle. This single test may be sensitive to dementia because it involves many cognitive areas that can be affected by dementia, including executive function, visuospatial abilities, motor programming, attention, and concentration.</p>
 <p align="center">
