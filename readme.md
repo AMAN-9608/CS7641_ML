@@ -15,6 +15,9 @@ A hand drawn clock image from CDT (Score 4)
 In our dataset, the scores awarded range from 0 (not recognizable as a clock) to 5 (accurate description). A qualified doctor then examines the drawing for the signs of dementia. The results from cognitive assessments by CDT are used to diagnose underlying cognitive disabilities, including Alzheimer’s disease. Currently, there's no cure for Alzheimer's. However the hope is, using screening tools such as CDT, we could detect the disease in its earliest stages, before irreversible brain damage or mental decline has occurred.</p>
 
 ### Problem Definition
+<p align="justify">
+The problem statement is to use the features extracted from the CDT to build a machine learning algorithm to predict whether the patient is in one of three phases: Pre-Alzheimer’s (Early Warning), Post-Alzheimer’s (Detection), or Normal (Not an Alzheimer’s patient)
+</p>
 
 ### Methods
 
