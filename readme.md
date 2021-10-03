@@ -6,7 +6,7 @@
 
 <p align="center">
   <img width="225" height="196" src="https://d3000t1r8yrm6n.cloudfront.net/uploads/ckeditor/pictures/236/image.png">
-  <figcaption>asdasd</figcaption>
+  <figcaption align="center">asdasd</figcaption>
 </p>
 
 ### Problem Definition
