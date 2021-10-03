@@ -10,7 +10,7 @@ Alzheimer's disease is a neurodegenerative disease that usually starts slowly an
 <p align = "center">
 A hand drawn clock image from CDT (Score 4)
 </p>
-In our current dataset the scores awarded range from 0 (not recognizable as a clock) to 5 (accurate description). A qualified doctor then examines the drawing for the signs of dementia. The results from cognitive assessments by CDT are used to diagnose underlying cognitive disabilities, including Alzheimer’s disease.
+In our current dataset, the scores awarded range from 0 (not recognizable as a clock) to 5 (accurate description). A qualified doctor then examines the drawing for the signs of dementia. The results from cognitive assessments by CDT are used to diagnose underlying cognitive disabilities, including Alzheimer’s disease.
 
 ### Problem Definition
 
