@@ -22,10 +22,7 @@ The problem statement is to build a machine learning algorithm that accurately p
 
 #### Supervised Learning
 
-<!--l. 57--><p class="noindent" >Supervised image classification is a fundamental and well-studied problem in the computer vision (CV) area. The accuracy
-of recent models facilitates the wild-usage of image classification and image segmentation techniques in the
-real world. In the pre-deep neural network (DNN) era, machine learning techniques such as decision tree or
-support vector machine (SVM). However, with development of computational power and mathematic algorithms,
+<!--l. 57--><p class="noindent" >Supervised image classification is a fundamental and well-studied problem in the computer vision (CV) area. The accuracy of recent models facilitates the wild-usage of image classification and image segmentation techniques in the real world. In the pre-deep neural network (DNN) era, machine learning techniques such as decision tree or support vector machine (SVM). However, with development of computational power and mathematic algorithms,
 convolutional neural networks (CNN <a 
 href="#XCun.1990.Handwritten">Cun et&#x00A0;al.</a>,&#x00A0;<a 
 href="#XCun.1990.Handwritten">1990</a>) became the principle method to address this problem. Based on
