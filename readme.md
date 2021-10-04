@@ -89,10 +89,7 @@ class="ptmri8t-">Digit  Recognition  with  a  Back-Propagation  Network</span>, 
   </p>
   <p class="bibitem" ><span class="biblabel">
 <a 
- id="XKrizhevsky.2012.ImageNet"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Alex    Krizhevsky,    Ilya    Sutskever,    and    Geoffrey&#x00A0;E    Hinton.           Imagenet    classification    with    deep
-                                                                                         
-                                                                                         
-  convolutional  neural  networks.     In  F.&#x00A0;Pereira,  C.&#x00A0;J.&#x00A0;C.  Burges,  L.&#x00A0;Bottou,  and  K.&#x00A0;Q.  Weinberger,  editors,
+ id="XKrizhevsky.2012.ImageNet"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Alex    Krizhevsky,    Ilya    Sutskever,    and    Geoffrey&#x00A0;E    Hinton.           Imagenet    classification    with    deep convolutional  neural  networks.     In  F.&#x00A0;Pereira,  C.&#x00A0;J.&#x00A0;C.  Burges,  L.&#x00A0;Bottou,  and  K.&#x00A0;Q.  Weinberger,  editors,
   <span 
 class="ptmri8t-">Advances   in   Neural   Information   Processing   Systems</span>,   volume&#x00A0;25.   Curran   Associates,   Inc.,   2012.      URL
   <a 
