@@ -27,18 +27,9 @@ convolutional neural networks (CNN <a
 href="#XCun.1990.Handwritten">Cun et&#x00A0;al.</a>,&#x00A0;<a 
 href="#XCun.1990.Handwritten">1990</a>) became the principle method to address this problem. Based on
 CNN, Deep CNN (DCNN <a 
-href="#XKrizhevsky.2012.ImageNet">Krizhevsky et&#x00A0;al.</a>,&#x00A0;<a 
-href="#XKrizhevsky.2012.ImageNet">2012</a>), Inception [<a 
-href="#XSzegedy.2015.inception">Szegedy et&#x00A0;al.</a>,&#x00A0;<a 
-href="#XSzegedy.2015.inception">2015</a>], deep residual network
-(ResNet <a 
-href="#XHe.2016.resnet">He et&#x00A0;al.</a>,&#x00A0;<a 
-href="#XHe.2016.resnet">2016</a>) or pre-trained models such as ImageBERT [<a 
-href="#Xqi.2020.imagebert">Qi et&#x00A0;al.</a>,&#x00A0;<a 
-href="#Xqi.2020.imagebert">2020</a>] keep pushing forward the
-frontier.
-<!--l. 64--><p class="noindent" >In our work, we plan to implement a DCNN with convolution layers, pooling layers, dropout layers and classification layers for the image classification task. The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters. The start point is to follow <a href="#XKrizhevsky.2012.ImageNet">Krizhevsky et&#x00A0;al.</a>&#x00A0;[<a 
-href="#XKrizhevsky.2012.ImageNet">2012</a>]&#8217;s work, by we will consider to add residual connections to improve its performance.
+href="#XKrizhevsky.2012.ImageNet">Krizhevsky et&#x00A0;al.</a>,&#x00A0;<a href="#XKrizhevsky.2012.ImageNet">2012</a>), Inception [<a href="#XSzegedy.2015.inception">Szegedy et&#x00A0;al.</a>,&#x00A0;<a href="#XSzegedy.2015.inception">2015</a>], deep residual network
+(ResNet <a href="#XHe.2016.resnet">He et&#x00A0;al.</a>,&#x00A0;<a href="#XHe.2016.resnet">2016</a>) or pre-trained models such as ImageBERT [<a href="#Xqi.2020.imagebert">Qi et&#x00A0;al.</a>,&#x00A0;<a href="#Xqi.2020.imagebert">2020</a>] keep pushing forward thefrontier.
+<!--l. 64--><p class="noindent" >In our work, we plan to implement a DCNN with convolution layers, pooling layers, dropout layers and classification layers for the image classification task. The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters. The start point is to follow <a href="#XKrizhevsky.2012.ImageNet">Krizhevsky et&#x00A0;al.</a>&#x00A0;[<a href="#XKrizhevsky.2012.ImageNet">2012</a>]&#8217;s work, by we will consider to add residual connections to improve its performance.
 
 
 #### Unsupervised Learning
