@@ -37,10 +37,8 @@ href="#XHe.2016.resnet">2016</a>) or pre-trained models such as ImageBERT [<a
 href="#Xqi.2020.imagebert">Qi et&#x00A0;al.</a>,&#x00A0;<a 
 href="#Xqi.2020.imagebert">2020</a>] keep pushing forward the
 frontier.
-<!--l. 64--><p class="noindent" >In our work, we plan to implement a DCNN with convolution layers, pooling layers, dropout layers and classification layers for the image classification task. The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters. The start point is to follow <a 
-href="#XKrizhevsky.2012.ImageNet">Krizhevsky et&#x00A0;al.</a>&#x00A0;[<a 
-href="#XKrizhevsky.2012.ImageNet">2012</a>]&#8217;s work, by we will consider to add residual connections to improve its
-performance.
+<!--l. 64--><p class="noindent" >In our work, we plan to implement a DCNN with convolution layers, pooling layers, dropout layers and classification layers for the image classification task. The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters. The start point is to follow <a href="#XKrizhevsky.2012.ImageNet">Krizhevsky et&#x00A0;al.</a>&#x00A0;[<a 
+href="#XKrizhevsky.2012.ImageNet">2012</a>]&#8217;s work, by we will consider to add residual connections to improve its performance.
 
 
 #### Unsupervised Learning
