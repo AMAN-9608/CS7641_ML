@@ -21,12 +21,15 @@ The problem statement is to build a machine learning algorithm that accurately p
 ### Methods
 
 ### Potentials Results
-<p align="justify">
+
 The multi-label classification model shall have the following three label categories:
-  
-- Normal (No pneumonia)
-- Bacterial Pneumonia
-- Viral Pneumonia
+
+<ul>
+<li>Normal (No pneumonia)</li>
+<li>Bacterial Pneumonia</li>
+<li>Viral Pneumonia</li>
+</ul>
+
 <p align="justify">
 Using the features extracted from the images, we shall use PCA to reduce dimensionality and visualize the data, and then use unsupervised learning algorithms to potentially identify 3 distinct clusters in our data (corresponding to our labels).
 <p align="justify">
