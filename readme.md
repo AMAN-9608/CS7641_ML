@@ -28,7 +28,7 @@ The multi-label classification model shall have the following three label catego
 - Bacterial Pneumonia
 - Viral Pneumonia
 <p align="justify">
-Using the features extracted from the images, we shall use PCA to reduce dimensionality and visualize the data, and then use unsupervised learning such as clustering, to potentially identify 3 distinct clusters in our data (corresponding to our labels).
+Using the features extracted from the images, we shall use PCA to reduce dimensionality and visualize the data, and then use unsupervised learning algorithms to potentially identify 3 distinct clusters in our data (corresponding to our labels).
 <p align="justify">
 Next, we shall measure the performance of each of our supervised classification models using suitable metrics such as accuracy, precision, recall, AUC etc. to compare the models and conclusively identify the algorithm that works best for our classification task. 
 
