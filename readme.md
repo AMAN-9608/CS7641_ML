@@ -22,8 +22,8 @@ The problem statement is to build a machine learning algorithm that accurately p
 
 ### Potentials Results
 <p align="justify">
-The multi-label classification model that we will build shall have the following three label categories:
-
+The multi-label classification model shall have the following three label categories:
+  
 - Normal (No pneumonia)
 - Bacterial Pneumonia
 - Viral Pneumonia
