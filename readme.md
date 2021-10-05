@@ -68,30 +68,3 @@ Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. [Imagenet classification
 Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich. [Going deeper with convolutions](https://doi.org/10.1109/CVPR.2015.7298594) <br>
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. [Deep residual learning for image recognition](https://doi.org/10.1109/CVPR.2016.90) <br>
 Di Qi, Lin Su, Jia Song, Edward Cui, Taroon Bharti, and Arun Sacheti. "Imagebert: Cross-modal pre-training with large-scale weak-supervised image-text data" 
-<!---
-<div class="thebibliography">
-<p class="bibitem" ><span class="biblabel">
-<a id="XCun.1990.Handwritten"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Y.&#x00A0;Le Cun, B.&#x00A0;Boser, J.&#x00A0;S. Denker, R.&#x00A0;E. Howard, W.&#x00A0;Habbard, L.&#x00A0;D. Jackel, and D.&#x00A0;Henderson. <span class="ptmri8t-">Handwritten</span>
-<span class="ptmri8t-">Digit Recognition with a Back-Propagation Network</span>, pages 396&#8211;404. Morgan Kaufmann Publishers Inc., San
-Francisco, CA, USA, 1990. ISBN 1558601007.
-</p>
-<p class="bibitem" ><span class="biblabel">
-<a id="XKrizhevsky.2012.ImageNet"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Alex Krizhevsky, Ilya Sutskever, and Geoffrey&#x00A0;E Hinton. Imagenet classification with deep convolutional neural networks. In F.&#x00A0;Pereira, C.&#x00A0;J.&#x00A0;C. Burges, L.&#x00A0;Bottou, and K.&#x00A0;Q. Weinberger, editors,
-<span class="ptmri8t-">Advances in Neural Information Processing Systems</span>, volume&#x00A0;25. Curran Associates, Inc., 2012. <a href="https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf" class="url" ><span class="ectt-1000">URL</span></a>.
-</p>
-<p class="bibitem" ><span class="biblabel">
-<a id="XSzegedy.2015.inception"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan,
-Vincent Vanhoucke, and Andrew Rabinovich. Going deeper with convolutions. In <span class="ptmri8t-">2015 IEEE Conference on</span>
-<span class="ptmri8t-">Computer Vision and Pattern Recognition (CVPR)</span>, pages 1&#8211;9, 2015. doi:<a href="https://doi.org/10.1109/CVPR.2015.7298594" >10.1109/CVPR.2015.7298594</a>.
-</p>
-<p class="bibitem" ><span class="biblabel">
-<a id="XHe.2016.resnet"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition.
-In <span class="ptmri8t-">2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</span>, pages 770&#8211;778, 2016.
-doi:<a href="https://doi.org/10.1109/CVPR.2016.90" >10.1109/CVPR.2016.90</a>.
-</p>
-<p class="bibitem" ><span class="biblabel">
-<a id="Xqi.2020.imagebert"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Di&#x00A0;Qi, Lin Su, Jia Song, Edward Cui, Taroon Bharti, and Arun Sacheti. Imagebert: Cross-modal pre-training with
-large-scale weak-supervised image-text data, 2020.
-</p>
-</div>
--->
