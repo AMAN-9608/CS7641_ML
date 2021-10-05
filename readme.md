@@ -9,7 +9,7 @@ Pneumonia is an infection of one or both of the lungs in which the air sacs fill
 <img width="400" height="196" src="https://i.imgur.com/jZqpV51.png">
 </p>
 <p align = "center">
-<font size="1">Illustrative Example of Chest X-Ray in Patients with No pneumonia, Bacterial Pneumonia or Viral Pneumonia</font>
+<font size="1">Illustrative Example of Chest X-Ray in Patients with No pneumonia, Bacterial Pneumonia and Viral Pneumonia</font>
 </p>
 <p align="justify">
 A qualified doctor then examines the X-ray for the signs of Pneumonia. Due to the subjectivity and manual bias of interpretations, the test results are not widely comparable. The current need is to establish a simple, automated, and objective screening technique which can adapt to a range of health and social service settings and would enable early detection of Pneumonia.</p>
