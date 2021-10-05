@@ -62,7 +62,7 @@ Raza, Khalid, and Nripendra Kumar Singh. “A Tour of Unsupervised Deep Learning
 Fischer, Peter, et al. “Unsupervised Learning for Robust Respiratory Signal Estimation from X-Ray Fluoroscopy.” [Link](https://doi.org/10.1109/tmi.2016.2609888) <br>
 Cohn, Ryan, and Elizabeth Holm. “Unsupervised Machine Learning via Transfer Learning and K-Means Clustering to Classify Materials Image Data.” [Link](https://doi.org/10.1007/s40192-021-00205-8) <br>
 Gibson, Eli, et al. “NiftyNet: A Deep-Learning Platform for Medical Imaging.” [Link](https://doi.org/10.1016/j.cmpb.2018.01.025)
-
+<!---
 <div class="thebibliography">
 <p class="bibitem" ><span class="biblabel">
 <a id="XCun.1990.Handwritten"></a><span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Y.&#x00A0;Le Cun, B.&#x00A0;Boser, J.&#x00A0;S. Denker, R.&#x00A0;E. Howard, W.&#x00A0;Habbard, L.&#x00A0;D. Jackel, and D.&#x00A0;Henderson. <span class="ptmri8t-">Handwritten</span>
@@ -88,3 +88,4 @@ doi:<a href="https://doi.org/10.1109/CVPR.2016.90" >10.1109/CVPR.2016.90</a>.
 large-scale weak-supervised image-text data, 2020.
 </p>
 </div>
+-->
