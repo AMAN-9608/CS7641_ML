@@ -36,9 +36,9 @@ The starting point is to follow Krizhevsky et al. 2020's work, by we will consid
 
 #### Unsupervised Learning
 <p align="justify">
-Unsupervised learning is promising in the medical imaging field as it lacks the labelling and class creation bias which is implicit in supervised learning. Because unsupervised learning derives insights directly from data, it may be preferred for some applications (Raza, Khalid, and Nripendra 2021). Researchers have had success using Kernel Principal Component Analysis (PCA) to extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). In the wider image clustering field, state of the art algorithms apply Deep Convolutional Neural Networks and use standard clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
+Unsupervised learning is promising in the medical imaging field as it lacks the bias which is implicit in supervised learning (Raza, Khalid, and Nripendra 2021). Researchers have had success using Kernel Principal Component Analysis (PCA) to extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). In the wider image clustering field, state of the art algorithms apply Deep Convolutional Neural Networks and use standard clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
 <p align="justify">
-Our approach will involve reducing the dimensionality of the dataset (from an image of thousands of pixels to some tractable feature vector). We intend to apply PCA to scale down the size, but may attempt to utilize pre-trained image classifiers such as vgg16, AlexNet, or NiftyNet (Gibson, Eli, et al). Finally we will use a clustering algorithm such as k-means to group similar items together.</p>
+Our approach will involve reducing the dimensionality of the dataset, initially with PCA. Subsequent methods may attempt to utilize pre-trained image classifiers such as vgg16, AlexNet, or NiftyNet (Gibson, Eli, et al). Finally, we will use a clustering algorithm such as k-means to group similar items together.</p>
 
 
 ### Potentials Results
