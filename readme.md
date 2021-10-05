@@ -54,8 +54,12 @@ Using the features extracted from the images, we shall use PCA to reduce dimensi
 <p align="justify">
 Next, we shall measure the performance of each of our supervised classification models using suitable metrics such as accuracy, precision, recall, AUC etc. to compare the models and conclusively identify the algorithm that works best for our classification task.</p>
 
-### Proposed Timeline
-
+### Proposed Timeline and Responsibilities
+<p align="justify">
+By the Midterm, we ....
+By the Endterm, we .....</p>
+<p align="justify">
+For this proposal, all team members have contributed similar amount of effort into researching related literature and drafting the different sections of the document.  Moving forward, we are going to distribute the work among the group – tentatively, 3 members (-,-,-) are going to ......... models, while 2 members (- and -) are going to primarily focus on ........  Task delegation is flexible and will be adjusted as needed; deliverables between the two groups will be communicated clearly to ensure the best possible result.</p>
 
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
