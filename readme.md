@@ -6,10 +6,10 @@
 <p align="justify">
 Pneumonia is an infection of one or both of the lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects 450 million people globally and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is a screening technique, which may help confirm the diagnosis.</p>
 <p align="center">
-<img width="300" height="196" src="https://i.imgur.com/jZqpV51.png">
+<img width="300" height="196" src="https://miro.medium.com/max/1400/1*caVi5_pTsarvYlqkarijOg.png">
 </p>
 <p align = "center">
-<font size="1">Illustrative Example of Chest X-Ray in Patients with No pneumonia, Bacterial Pneumonia and Viral Pneumonia</font>
+<font size="1">Illustrative Example of Chest X-Ray in Patients without Pneumonia (left) and with Pneumonia (right)</font>
 </p>
 <p align="justify">
 A qualified doctor then examines the X-ray for the signs of Pneumonia. Due to the subjectivity and manual bias of interpretations, the test results are not widely comparable. The current need is to establish a simple, automated, and objective screening technique which can adapt to a range of health and social service settings and would enable early detection of Pneumonia.</p>
@@ -36,7 +36,7 @@ The starting point is to follow Krizhevsky et al. 2020's work, by we will consid
 
 #### Unsupervised Learning
 <p align="justify">
-Unsupervised learning is promising in the medical imaging field as it lacks the bias which is implicit in supervised learning (Raza, Khalid, and Nripendra 2021). Researchers have had success using Kernel Principal Component Analysis (PCA) to extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). In the wider image clustering field, state of the art algorithms apply D CNNs and use clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
+Unsupervised learning is promising in the medical imaging field as it lacks the bias which is implicit in supervised learning (Raza, Khalid, and Nripendra 2021). Kernel Principal Component Analysis (PCA) has been used to successfully extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). Another method is to apply Deep CNNs and use clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
 <p align="justify">
 Our approach will involve reducing the dimensionality of the dataset, initially with PCA. Subsequent methods may attempt to utilize pre-trained image classifiers such as vgg16, AlexNet, or NiftyNet (Gibson, Eli, et al). Finally, we will use a clustering algorithm such as k-means to group similar items together.</p>
 
