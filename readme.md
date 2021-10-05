@@ -56,6 +56,7 @@ Using the features extracted from the images, we shall use PCA to reduce dimensi
 <p align="justify">
 Next, we shall measure the performance of each of our supervised classification models using suitable metrics such as accuracy, precision, recall, AUC etc. to compare the models and conclusively identify the algorithm that works best for our classification task.</p>
 
+### Proposed Timeline
 
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. “A Tour of Unsupervised Deep Learning for Medical Image Analysis” [Link](https://doi.org/10.2174/1573405617666210127154257)<br>
