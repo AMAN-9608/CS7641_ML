@@ -36,7 +36,7 @@ We plan to implement a DCNN for this project. The guideline is to balance the mo
 <p align="justify">
 Unsupervised learning is promising in the medical imaging field as it lacks the bias which is implicit in supervised learning (Raza, Khalid, and Nripendra 2021). Kernel Principal Component Analysis (PCA) has been used to successfully extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). Another method is to apply Deep CNNs and use clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
 <p align="justify">
-Our approach will involve reducing the dimensionality of the dataset, initially with PCA. Subsequent methods may attempt to utilize pre-trained image classifiers such as vgg16, AlexNet, or NiftyNet (Gibson, Eli, et al). Finally, we will use a clustering algorithm such as k-means to group similar items together.</p>
+Our approach will involve reducing the dimensionality of the dataset, initially with PCA. Subsequent methods may attempt to utilize pre-trained image classifiers such as vgg16, AlexNet, or NiftyNet (Gibson, Eli, et al.). Finally, we will use a clustering algorithm such as k-means to group similar items together.</p>
 
 
 ### Potentials Results
