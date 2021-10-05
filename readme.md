@@ -59,7 +59,7 @@ Next, we shall measure the performance of each of our supervised classification 
 ### Proposed Timeline
 
 ### References
-Raza, Khalid, and Nripendra Kumar Singh. “A Tour of Unsupervised Deep Learning for Medical Image Analysis” [Link](https://doi.org/10.2174/1573405617666210127154257)<br>
+Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
 Fischer, Peter, et al. “Unsupervised Learning for Robust Respiratory Signal Estimation from X-Ray Fluoroscopy” [Link](https://doi.org/10.1109/tmi.2016.2609888) <br>
 Cohn, Ryan, and Elizabeth Holm. “Unsupervised Machine Learning via Transfer Learning and K-Means Clustering to Classify Materials Image Data” [Link](https://doi.org/10.1007/s40192-021-00205-8) <br>
 Gibson, Eli, et al. “NiftyNet: A Deep-Learning Platform for Medical Imaging.” [Link](https://doi.org/10.1016/j.cmpb.2018.01.025)<br>
