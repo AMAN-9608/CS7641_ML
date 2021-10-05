@@ -61,11 +61,11 @@ Next, we shall measure the performance of each of our supervised classification 
 Raza, Khalid, and Nripendra Kumar Singh. “A Tour of Unsupervised Deep Learning for Medical Image Analysis” [Link](https://doi.org/10.2174/1573405617666210127154257)<br>
 Fischer, Peter, et al. “Unsupervised Learning for Robust Respiratory Signal Estimation from X-Ray Fluoroscopy” [Link](https://doi.org/10.1109/tmi.2016.2609888) <br>
 Cohn, Ryan, and Elizabeth Holm. “Unsupervised Machine Learning via Transfer Learning and K-Means Clustering to Classify Materials Image Data” [Link](https://doi.org/10.1007/s40192-021-00205-8) <br>
-Gibson, Eli, et al. “NiftyNet: A Deep-Learning Platform for Medical Imaging.” [Link](https://doi.org/10.1016/j.cmpb.2018.01.025)
-Y. Le Cun, B. Boser, J. S. Denker, R. E. Howard, W. Habbard, L. D. Jackel, and D. Henderson. "Handwritten Digit Recognition with a Back-Propagation Network"
-Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. "Imagenet classification with deep convolutional neural networks" [Link](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
-Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich. "Going deeper with convolutions" [Link](https://doi.org/10.1109/CVPR.2015.7298594)
-Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. "Deep residual learning for image recognition" [Link](https://doi.org/10.1109/CVPR.2016.90)
+Gibson, Eli, et al. “NiftyNet: A Deep-Learning Platform for Medical Imaging.” [Link](https://doi.org/10.1016/j.cmpb.2018.01.025)<br>
+Y. Le Cun, B. Boser, J. S. Denker, R. E. Howard, W. Habbard, L. D. Jackel, and D. Henderson. "Handwritten Digit Recognition with a Back-Propagation Network" <br>
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. "Imagenet classification with deep convolutional neural networks" [Link](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) <br>
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich. "Going deeper with convolutions" [Link](https://doi.org/10.1109/CVPR.2015.7298594) <br>
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. "Deep residual learning for image recognition" [Link](https://doi.org/10.1109/CVPR.2016.90) <br>
 Di Qi, Lin Su, Jia Song, Edward Cui, Taroon Bharti, and Arun Sacheti. "Imagebert: Cross-modal pre-training with large-scale weak-supervised image-text data" 
 <!---
 <div class="thebibliography">
