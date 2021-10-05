@@ -26,17 +26,17 @@ The problem statement is to build a machine learning algorithm that accurately p
 <!-- Supervised image classification is a fundamental and well-studied problem in the computer vision (CV) area. -->
 <!-- The accuracy of recent models facilitates the wild-usage of image classification and image segmentation techniques in the real world. -->
 <!-- In the pre-deep neural network (DNN) era, machine learning techniques such as decision tree or support vector machine (SVM). -->
-With development of computational power and mathematic algorithms, convolutional neural networks (CNN Cun et al.) became the principle method to address supervised image classification.
-Based on CNN, Deep CNN (DCNN Krizhevsky et al.), Inception (Szegedy et al.), deep residual network (ResNet He et al.) or pre-trained models such as ImageBERT (Qi et al.) keep pushing forward the frontier.</p>
+With development of computational power and mathematic algorithms, convolutional neural networks (CNN Cun et al. 1990) became the principle method to address supervised image classification.
+Based on CNN, Deep CNN (DCNN Krizhevsky et al. 2012), Inception (Szegedy et al. 2015), deep residual network (ResNet He et al. 2016) or pre-trained models such as ImageBERT (Qi et al. 2020) keep pushing forward the frontier.</p>
 <p align="justify">
 We plan to implement a DCNN for this project.
 The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters.
-The starting point is to follow Krizhevsky et al.'s work, by we will consider to add residual connections to improve the model performance.</p>
+The starting point is to follow Krizhevsky et al. 2020's work, by we will consider to add residual connections to improve the model performance.</p>
 
 
 #### Unsupervised Learning
 <p align="justify">
-Unsupervised learning is promising in the medical imaging field as it lacks the labelling and class creation bias which is implicit in supervised learning. Because unsupervised learning derives insights directly from data, it may be preferred for some applications (Raza, Khalid, and Nripendra 2021). Researchers have had success using Kernel Principal Component Analysis (PCA) to extract respiratory signal estimation from X-ray images (Fischer, Peter, et al., 2017). In the wider image clustering field, state of the art algorithms apply Deep Convolutional Neural Networks and use standard clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm, 2021). </p>
+Unsupervised learning is promising in the medical imaging field as it lacks the labelling and class creation bias which is implicit in supervised learning. Because unsupervised learning derives insights directly from data, it may be preferred for some applications (Raza, Khalid, and Nripendra 2021). Researchers have had success using Kernel Principal Component Analysis (PCA) to extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). In the wider image clustering field, state of the art algorithms apply Deep Convolutional Neural Networks and use standard clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
 <p align="justify">
 Our approach will involve reducing the dimensionality of the dataset (from an image of thousands of pixels to some tractable feature vector). We intend to apply PCA to scale down the size, but may attempt to utilize pre-trained image classifiers such as vgg16, AlexNet, or NiftyNet (Gibson, Eli, et al). Finally we will use a clustering algorithm such as k-means to group similar items together.</p>
 
