@@ -4,7 +4,7 @@
 
 ### Introduction
 <p align="justify">
-Pneumonia is an infection of one or both of the lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects about 450 million people globally (7% of the population) and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is one such screening technique, which may help confirm the diagnosis.</p>
+Pneumonia is an infection of one or both of the lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects 450 million people globally and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is a screening technique, which may help confirm the diagnosis.</p>
 <p align="center">
 <img width="300" height="196" src="https://miro.medium.com/max/1400/1*caVi5_pTsarvYlqkarijOg.png">
 </p>
@@ -36,7 +36,7 @@ The starting point is to follow Krizhevsky et al. 2020's work, by we will consid
 
 #### Unsupervised Learning
 <p align="justify">
-Unsupervised learning is promising in the medical imaging field as it lacks the bias which is implicit in supervised learning (Raza, Khalid, and Nripendra 2021). Researchers have had success using Kernel Principal Component Analysis (PCA) to extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). In the wider image clustering field, state of the art algorithms apply Deep Convolutional Neural Networks and use standard clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
+Unsupervised learning is promising in the medical imaging field as it lacks the bias which is implicit in supervised learning (Raza, Khalid, and Nripendra 2021). Researchers have had success using Kernel Principal Component Analysis (PCA) to extract respiratory signal estimation from X-ray images (Fischer, Peter, et al. 2017). In the wider image clustering field, state of the art algorithms apply D CNNs and use clustering algorithms on extracted features to group similar pictures (Cohn, Ryan, and Holm 2021). </p>
 <p align="justify">
 Our approach will involve reducing the dimensionality of the dataset, initially with PCA. Subsequent methods may attempt to utilize pre-trained image classifiers such as vgg16, AlexNet, or NiftyNet (Gibson, Eli, et al). Finally, we will use a clustering algorithm such as k-means to group similar items together.</p>
 
@@ -52,7 +52,7 @@ The multi-label classification model shall have the following three label catego
 </ul>
 
 <p align="justify">
-Using the features extracted from the images, we shall use PCA to reduce dimensionality and visualize the data, and then use unsupervised learning algorithms to potentially identify 3 distinct clusters in our data (corresponding to our labels).</p>
+Using the features extracted from the images, we shall use PCA to reduce dimensionality and visualize the data, and then use unsupervised learning to potentially identify 3 distinct clusters in our data (corresponding to our labels).</p>
 <p align="justify">
 Next, we shall measure the performance of each of our supervised classification models using suitable metrics such as accuracy, precision, recall, AUC etc. to compare the models and conclusively identify the algorithm that works best for our classification task.</p>
 
