@@ -6,7 +6,7 @@
 <p align="justify">
 Pneumonia is an infection of one or both of the lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects 450 million people globally and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is a screening technique, which may help confirm the diagnosis.</p>
 <p align="center">
-<img width="300" height="196" src="https://miro.medium.com/max/1400/1*caVi5_pTsarvYlqkarijOg.png">
+<img width="400" height="196" src="https://i.imgur.com/jZqpV51.png">
 </p>
 <p align = "center">
 <font size="1">Illustrative Example of Chest X-Ray in Patients without Pneumonia (left) and with Pneumonia (right)</font>
