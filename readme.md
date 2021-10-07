@@ -29,7 +29,7 @@ The problem statement is to build a machine learning algorithm that accurately p
 With the development of computational power and mathematic algorithms, convolutional neural networks (CNN Cun et al. 1990) became the principal method to address supervised image classification.
 Based on CNN, Deep CNN (DCNN Krizhevsky et al. 2012), Inception (Szegedy et al. 2015), deep residual network (ResNet He et al. 2016) or pre-trained models such as ImageBERT (Qi et al. 2020) keep pushing forward the frontier.</p>
 <p align="justify">
-We plan to implement a DCNN for this project. The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters. The starting point is to follow Krizhevsky et al. 2020's work, by we will consider to add residual connections to improve the model performance.</p>
+We plan to implement a DCNN for this project. The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters. The starting point is to follow Krizhevsky et al. 2020's work. We will consider to add residual connections to improve the model performance.</p>
 
 
 #### Unsupervised Learning
