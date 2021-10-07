@@ -4,7 +4,7 @@
 
 ### Introduction
 <p align="justify">
-Pneumonia is an infection of one or both of the lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects 450 million people globally and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is a screening technique, which may help confirm the diagnosis.</p>
+Pneumonia is an infection of one or both lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects 450 million people globally and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is a screening technique, which may help confirm the diagnosis.</p>
 <p align="center">
 <img width="400" height="196" src="https://i.imgur.com/jZqpV51.png">
 </p>
@@ -12,11 +12,11 @@ Pneumonia is an infection of one or both of the lungs in which the air sacs fill
 <font size="1">Illustrative Example of Chest X-Ray in Patients with No pneumonia, Bacterial Pneumonia and Viral Pneumonia</font>
 </p>
 <p align="justify">
-A qualified doctor then examines the X-ray for the signs of Pneumonia. Due to the subjectivity and manual bias of interpretations, the test results are not widely comparable. The current need is to establish a simple, automated, and objective screening technique which can adapt to a range of health and social service settings and would enable early detection of Pneumonia.</p>
+A qualified doctor then examines the X-ray for the signs of Pneumonia. Due to the subjectivity and manual bias of interpretations, the test results are not widely comparable. The current need is to establish a simple, automated, and objective screening technique that can adapt to a range of health and social service settings and would enable early detection of Pneumonia.</p>
 
 ### Problem Definition
 <p align="justify">
-The problem statement is to build a machine learning algorithm that accurately predicts whether the patient has No pneumonia, Bacterial Pneumonia or Viral Pneumonia, based on their Chest X-ray.</p>
+The problem statement is to build a machine learning algorithm that accurately predicts whether the patient has No pneumonia, Bacterial Pneumonia, or Viral Pneumonia, based on their Chest X-ray.</p>
 
 ### Methods
 
@@ -26,7 +26,7 @@ The problem statement is to build a machine learning algorithm that accurately p
 <!-- Supervised image classification is a fundamental and well-studied problem in the computer vision (CV) area. -->
 <!-- The accuracy of recent models facilitates the wild-usage of image classification and image segmentation techniques in the real world. -->
 <!-- In the pre-deep neural network (DNN) era, machine learning techniques such as decision tree or support vector machine (SVM). -->
-With development of computational power and mathematic algorithms, convolutional neural networks (CNN Cun et al. 1990) became the principle method to address supervised image classification.
+With the development of computational power and mathematic algorithms, convolutional neural networks (CNN Cun et al. 1990) became the principal method to address supervised image classification.
 Based on CNN, Deep CNN (DCNN Krizhevsky et al. 2012), Inception (Szegedy et al. 2015), deep residual network (ResNet He et al. 2016) or pre-trained models such as ImageBERT (Qi et al. 2020) keep pushing forward the frontier.</p>
 <p align="justify">
 We plan to implement a DCNN for this project. The guideline is to balance the model performance and complexity, including the time spent in implementing the model as well as the time for training the model and fine-tuning its hyper-parameters. The starting point is to follow Krizhevsky et al. 2020's work, by we will consider to add residual connections to improve the model performance.</p>
@@ -56,8 +56,8 @@ Next, we shall measure the performance of each of our supervised classification 
 
 ### Proposed Timeline and Responsibilities
 <p align="justify">
-For the Midterm, we expect to be done with a baseline model that incorporates both supervised and unsupervised learning. Moving onwards to the endterm, we'll spend our time comparing models and fine tuning the selected model.<br>
-For this proposal, all team members have contributed similar amount of effort into researching related literature and drafting the different sections of the document.  Moving forward, we are going to distribute the work among the group – tentatively, 3 members (Amandeep, Siddharth, Yinghao) are going to work on the supervised learning aspect, while 2 members (Sai and Rajan) are going to primarily focus on the unsupervised learning aspect of the project. Task delegation is flexible and will be adjusted as needed; deliverables between the two groups will be communicated clearly to ensure the best possible result.</p>
+For the Midterm, we expect to be done with a baseline model that incorporates both supervised and unsupervised learning. Moving onwards to the Endterm, we'll spend our time comparing models and fine-tuning the selected model.<br>
+For this proposal, all team members have contributed a similar amount of effort into researching related literature and drafting the different sections of the document.  Moving forward, we are going to distribute the work among the group – tentatively, 3 members (Amandeep, Siddharth, Yinghao) are going to work on the supervised learning aspect, while 2 members (Sai and Rajan) are going to primarily focus on the unsupervised learning aspect of the project. Task delegation is flexible and will be adjusted as needed; deliverables between the two groups will be communicated clearly to ensure the best possible result.</p>
 
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
