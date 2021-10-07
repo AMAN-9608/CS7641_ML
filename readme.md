@@ -56,10 +56,8 @@ Next, we shall measure the performance of each of our supervised classification 
 
 ### Proposed Timeline and Responsibilities
 <p align="justify">
-By the Midterm, we ....
-By the Endterm, we .....</p>
-<p align="justify">
-For this proposal, all team members have contributed similar amount of effort into researching related literature and drafting the different sections of the document.  Moving forward, we are going to distribute the work among the group – tentatively, 3 members (-,-,-) are going to ......... models, while 2 members (- and -) are going to primarily focus on ........  Task delegation is flexible and will be adjusted as needed; deliverables between the two groups will be communicated clearly to ensure the best possible result.</p>
+For the Midterm, we expect to be done with a baseline model that incorporates both supervised and unsupervised learning. Moving onwards to the endterm, we'll spend our time comparing models and fine tuning the selected model.<br>
+For this proposal, all team members have contributed similar amount of effort into researching related literature and drafting the different sections of the document.  Moving forward, we are going to distribute the work among the group – tentatively, 3 members (Amandeep, Siddharth, Yinghao) are going to work on the supervised learning aspect, while 2 members (Sai and Rajan) are going to primarily focus on the unsupervised learning aspect of the project. Task delegation is flexible and will be adjusted as needed; deliverables between the two groups will be communicated clearly to ensure the best possible result.</p>
 
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
