@@ -2,8 +2,9 @@
     "train_dir": "../../data/train",
     "test_dir": "../../data/test",
     "output_dir": "./output",
-    "num_train_epochs": 5,
+    "num_train_epochs": 20,
     "batch_size": 2,
     "seed": 1,
+    "save_processed_data": true,
     "debug_mode": true
 }

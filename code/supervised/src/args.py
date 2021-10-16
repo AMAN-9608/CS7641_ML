@@ -15,13 +15,13 @@ class DCNNArguments:
     Arguments for DCNN
     """
     train_dir: Optional[str] = field(
-        default='', metadata={'help': 'training data name'}
+        default="../../data/train", metadata={'help': 'training data name'}
     )
     test_dir: Optional[str] = field(
-        default='', metadata={'help': 'test data name'}
+        default="../../data/test", metadata={'help': 'test data name'}
     )
     output_dir: Optional[str] = field(
-        default='.',
+        default='./output',
         metadata={"help": "The output folder where the model predictions and checkpoints will be written."},
     )
     image_size: Optional[int] = field(
@@ -69,6 +69,10 @@ class DCNNArguments:
     debug_mode: Optional[bool] = field(
         default=False, metadata={"help": "Debugging mode with fewer training data"}
     )
+
+    def __post_init__(self):
+        if not ((self.image_size & (self.image_size-1) == 0) and self.image_size != 0):
+            raise ValueError('Image size must be the power of 2')
 
     # The following three functions are copied from transformers.training_args
     @cached_property

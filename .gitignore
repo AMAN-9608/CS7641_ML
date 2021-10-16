@@ -130,3 +130,6 @@ dmypy.json
 *.jpeg
 .vscode/
 .idea/
+output/
+*.pt
+*.bin

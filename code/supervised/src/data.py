@@ -37,7 +37,7 @@ class ImageCxDataset(torch.utils.data.Dataset):
         return self.n_insts
 
     def __getitem__(self, idx):
-        item = {'imgs': torch.tensor(self._images[idx])}
+        item = {'imgs': self._images[idx]}
         if self._lbs:
             item['lbs'] = torch.tensor(self._lbs[idx])
         return item

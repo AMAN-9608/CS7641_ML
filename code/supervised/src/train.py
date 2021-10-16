@@ -430,6 +430,8 @@ class ImageCxTrainer:
         -------
         None
         """
+        output_dir = output_dir if output_dir is not None else self._config.output_dir
+
         model_state_dict = self._model.state_dict()
         checkpoint = {
             'model': model_state_dict
