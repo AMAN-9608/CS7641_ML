@@ -60,6 +60,10 @@ def image_cx(args: DCNNArguments):
     if args.test_dir:
         logger.info("Start testing model.")
         test_metrics = trainer.test()
+
+        logger.info("Test results:")
+        for k, v in test_metrics.items():
+            logger.info(f"  {k}: {v:.4f}")
     else:
         test_metrics = None
 
