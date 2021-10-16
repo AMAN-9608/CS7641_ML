@@ -1,12 +1,8 @@
-import glob
-import sys
-sys.path.append('../..')
-
 import os
-import logging
+import glob
 import numpy as np
 
-from typing import List, Optional
+from typing import List, Optional, Union
 from PIL import Image
 
 import torch
@@ -14,8 +10,6 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 
 from .args import DCNNConfig
-
-logger = logging.getLogger(__name__)
 
 
 class ImageCxDataset(torch.utils.data.Dataset):
@@ -98,3 +92,21 @@ class ImageCxDataset(torch.utils.data.Dataset):
         self._lbs = lbs_keep
 
         return ImageCxDataset(imgs_output, lbs_output)
+
+    def select(self, ids: Union[List[int], np.ndarray, torch.Tensor]):
+        """
+        Select a subset of dataset
+
+        Parameters
+        ----------
+        ids: instance indices to select
+
+        Returns
+        -------
+        A BertClassificationDataset consists of selected items
+        """
+        if np.max(ids) >= self.n_insts:
+            raise ValueError('Invalid indices: exceeding the dataset size!')
+        images_ = [self._images[idx] for idx in ids]
+        lbs_ = [self._lbs[idx] for idx in ids] if self._lbs else None
+        return ImageCxDataset(images_, lbs_)
