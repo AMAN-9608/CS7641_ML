@@ -9,9 +9,6 @@ from torch.nn import functional as F
 from torch.utils.data import DataLoader
 
 from transformers import (
-    PreTrainedModel,
-    AutoModelForSequenceClassification,
-    AutoTokenizer,
     AdamW,
     get_scheduler,
     default_data_collator
@@ -24,6 +21,12 @@ from .data import ImageCxDataset
 from .model import DCNN
 
 logger = logging.getLogger(__name__)
+
+
+class CxMetric(Metric):
+    def __init__(self, precision=None, recall=None, f1=None, accuracy=None):
+        super(CxMetric, self).__init__(precision, recall, f1)
+        self.accuracy = accuracy
 
 
 class BertCxTrainer:
@@ -61,10 +64,6 @@ class BertCxTrainer:
     @property
     def model(self):
         return self._model
-
-    @property
-    def tokenizer(self):
-        return self._tokenizer
 
     @property
     def training_dataset(self):
@@ -220,7 +219,7 @@ class BertCxTrainer:
         val_size = int(np.floor(n_insts * self._config.valid_ratio))
         inst_ids = np.arange(n_insts)
 
-        valid_result_list = list()
+        valid_results = CxMetric()
         best_f1 = 0
         val_f1_cache = 0
         tolerance_epoch = 0
@@ -251,20 +250,20 @@ class BertCxTrainer:
                 training_dataloader = self.get_dataloader(training_dataset, shuffle=True)
 
             train_loss = self.training_step(training_dataloader, self._optimizer, self._lr_scheduler)
-            logger.info("Training loss: %.4f" % train_loss)
+            logger.info(f"Training loss: {train_loss: .4f}")
 
-            valid_results = self.evaluate(valid_dataset)
+            valid_metrics = self.evaluate(valid_dataset)
 
             logger.info("Validation results:")
-            for k, v in valid_results.items():
+            for k, v in valid_metrics.items():
                 logger.info(f"\t{k}: {v:.4f}")
 
             # ----- save model -----
             if self.valid_dataset is not None:
-                if valid_results['f1'] >= best_f1:
+                if valid_metrics['f1'] >= best_f1:
                     self.save()
                     logger.info("Checkpoint Saved!\n")
-                    best_f1 = valid_results['f1']
+                    best_f1 = valid_metrics['f1']
                     tolerance_epoch = 0
                 else:
                     tolerance_epoch += 1
@@ -272,25 +271,25 @@ class BertCxTrainer:
                 if epoch_mod == (n_fold - 1):
                     val_f1_cache /= n_fold
                     if val_f1_cache >= best_f1:
-                        logger.info(f'Saving checkpoint...')
                         self.save()
+                        logger.info("Checkpoint Saved!\n")
                         best_f1 = val_f1_cache
                         tolerance_epoch = 0
                     else:
                         tolerance_epoch += 1
                     val_f1_cache = 0
                 else:
-                    val_f1_cache += valid_results['f1']
+                    val_f1_cache += valid_metrics['f1']
 
             # ----- log history -----
-            valid_result_list.append(valid_results)
+            valid_results.append(valid_metrics)
             if tolerance_epoch > self._config.num_valid_tolerance:
                 logger.info("Training stopped because of exceeding tolerance")
                 break
 
         # retrieve the best state dict
         self.load()
-        return valid_result_list
+        return valid_results
 
     def training_step(self, data_loader, optimizer, lr_scheduler):
         train_loss = 0
@@ -304,11 +303,11 @@ class BertCxTrainer:
             for k, v in inputs.items():
                 if isinstance(v, torch.Tensor):
                     inputs[k] = v.to(self._config.device)
-            batch_size = len(inputs['input_ids'])
+            batch_size = len(inputs['imgs'])
             num_samples += batch_size
 
             # training step
-            outputs: SequenceClassifierOutput = self._model(**inputs)
+            outputs = self._model(inputs['imgs'])
             loss = self.compute_loss(outputs, inputs)
             loss.backward()
             # track loss
@@ -323,20 +322,18 @@ class BertCxTrainer:
         return train_loss
 
     def compute_loss(self,
-                     model_outputs: SequenceClassifierOutput,
-                     model_inputs: dict):
+                     outputs: torch.Tensor,
+                     inputs: dict):
 
-        if model_inputs['labels'].dtype in [torch.float, torch.float16, torch.float64]:
-            logger.error("Undefined!")
-            raise NotImplementedError("Functionality has not been defined!")
-        elif model_inputs['labels'].dtype in [torch.int, torch.int8, torch.int16, torch.int64]:
-            loss = model_outputs.loss
+        if inputs['lbs'].dtype in [torch.float, torch.float16, torch.float64]:
+            raise NotImplementedError("Soft labels are not supported!")
+        elif inputs['lbs'].dtype in [torch.int, torch.int8, torch.int16, torch.int64]:
+            loss = F.cross_entropy(outputs, inputs['lbs'])
         else:
-            logger.error("Unknown label type!")
             raise TypeError('Unknown label type!')
         return loss
 
-    def evaluate(self, dataset: BertClassificationDataset):
+    def evaluate(self, dataset: ImageCxDataset):
         data_loader = self.get_dataloader(dataset)
         self._model.to(self._config.device)
         self._model.eval()
@@ -345,14 +342,13 @@ class BertCxTrainer:
         with torch.no_grad():
             for inputs in data_loader:
                 # get data
-                if 'labels' in inputs.keys():
-                    inputs.pop('labels')
+                if 'lbs' in inputs.keys():
+                    inputs.pop('lbs')
                 for k, v in inputs.items():
                     if isinstance(v, torch.Tensor):
                         inputs[k] = v.to(self._config.device)
 
-                outputs: SequenceClassifierOutput = self._model(**inputs)
-                logits = outputs.logits
+                logits = self._model(inputs['imgs'])
 
                 pred_prob_batch = F.softmax(logits, dim=-1).detach().to('cpu').numpy()
                 pred_lb_batch = pred_prob_batch.argmax(axis=-1).tolist()
@@ -362,18 +358,22 @@ class BertCxTrainer:
         pred_lbs = np.asarray(pred_lbs)
 
         n_tp = np.sum((pred_lbs == 1) & (true_lbs == 1)) + 1E-9
-        n_fp = np.sum((pred_lbs == 1) & (true_lbs == 0)) + 1E-3
-        n_fn = np.sum((pred_lbs == 0) & (true_lbs == 1)) + 1E-3
+        n_fp = np.sum((pred_lbs == 1) & (true_lbs == 0)) + 1E-9
+        n_fn = np.sum((pred_lbs == 0) & (true_lbs == 1)) + 1E-9
 
-        metric_values = OrderedDict()
-        metric_values['accuracy'] = (pred_lbs == true_lbs).sum() / len(pred_lbs)
-        metric_values['precision'] = precision = n_tp / (n_tp + n_fp)
-        metric_values['recall'] = recall = n_tp / (n_tp + n_fn)
-        metric_values['f1'] = 2 * precision * recall / (precision + recall)
+        precision = n_tp / (n_tp + n_fp)
+        recall = n_tp / (n_tp + n_fn)
+
+        metric_values = CxMetric(
+            precision=precision,
+            recall=recall,
+            f1=2 * precision * recall / (precision + recall),
+            accuracy=(pred_lbs == true_lbs).sum() / len(pred_lbs)
+        )
 
         return metric_values
 
-    def predict(self, dataset: BertClassificationDataset):
+    def predict(self, dataset: ImageCxDataset):
         data_loader = self.get_dataloader(dataset)
         self._model.to(self._config.device)
         self._model.eval()
@@ -383,14 +383,13 @@ class BertCxTrainer:
         with torch.no_grad():
             for inputs in data_loader:
                 # get data
-                if 'labels' in inputs:
-                    inputs.pop('labels')
+                if 'lbs' in inputs:
+                    inputs.pop('lbs')
                 for k, v in inputs.items():
                     if isinstance(v, torch.Tensor):
                         inputs[k] = v.to(self._config.device)
 
-                outputs: SequenceClassifierOutput = self._model(**inputs)
-                logits = outputs.logits
+                logits = self._model(inputs['imgs'])
 
                 pred_prob_batch = F.softmax(logits, dim=-1).detach().to('cpu').numpy()
                 pred_lb_batch = pred_prob_batch.argmax(axis=-1).tolist()
@@ -404,7 +403,7 @@ class BertCxTrainer:
         test_results = self.evaluate(self._test_dataset)
         return test_results
 
-    def get_dataloader(self, dataset: BertClassificationDataset, shuffle: Optional[bool] = False):
+    def get_dataloader(self, dataset: ImageCxDataset, shuffle: Optional[bool] = False):
         if dataset:
             data_loader = DataLoader(
                 dataset=dataset,
@@ -415,7 +414,6 @@ class BertCxTrainer:
             )
             return data_loader
         else:
-            logger.error('Dataset is not defined!')
             raise ValueError("Dataset is not defined!")
 
     def save(self, output_dir: Optional[str] = None,
@@ -432,10 +430,11 @@ class BertCxTrainer:
         -------
         None
         """
-        output_dir = output_dir if output_dir is not None else self._config.output_dir
-        logger.info(f"Saving model to {output_dir}")
-        self._model.save_pretrained(save_directory=output_dir)
-        self._tokenizer.save_pretrained(save_directory=output_dir)
+        model_state_dict = self._model.state_dict()
+        checkpoint = {
+            'model': model_state_dict
+        }
+        torch.save(checkpoint, os.path.join(output_dir, 'dcnn.bin'))
         # Good practice: save your training arguments together with the trained model
         self._config.save(output_dir)
         # save trainer parameters
@@ -459,11 +458,10 @@ class BertCxTrainer:
         """
         input_dir = input_dir if input_dir is not None else self._config.output_dir
         if self._model is not None:
-            logger.warning(f"The original model {type(self._model)} in {type(self)} is not None. "
-                           f"It will be overwritten by the loaded model!")
+            logger.warning(f"The original model {type(self._model)} in {type(self)} will be overwritten!")
         logger.info(f"Loading model from {input_dir}")
-        self._model = AutoModelForSequenceClassification.from_pretrained(input_dir)
-        self._tokenizer = AutoTokenizer.from_pretrained(input_dir)
+        checkpoint = torch.load(os.path.join(input_dir, 'dcnn.bin'))
+        self._model.load_state_dict(checkpoint['model'])
         if load_optimizer_and_scheduler:
             logger.info("Loading optimizer and scheduler")
             if self._optimizer is None:
