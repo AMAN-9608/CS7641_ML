@@ -70,12 +70,12 @@ def image_cx(args: DCNNArguments):
         if valid_results is not None:
             for i in range(len(valid_results)):
                 f.write(f"[Epoch {i + 1}]\n")
-                for k in ['precision', 'recall', 'f1']:
+                for k in ['accuracy', 'precision', 'recall', 'f1']:
                     f.write(f"  {k}: {valid_results[k][i]:.4f}")
                 f.write("\n")
         if test_metrics is not None:
             f.write(f"[Test]\n")
-            for k in ['precision', 'recall', 'f1']:
+            for k in ['accuracy', 'precision', 'recall', 'f1']:
                 f.write(f"  {k}: {test_metrics[k]:.4f}")
             f.write("\n")
     structured_results_path = os.path.join(args.output_dir, 'structured-results.pt')
