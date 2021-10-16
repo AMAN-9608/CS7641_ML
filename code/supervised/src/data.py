@@ -44,7 +44,7 @@ class ImageCxDataset(torch.utils.data.Dataset):
 
     def load_file(self,
                   file_dir: str,
-                  config: Optional[DCNNConfig] = None) -> "ImageCxDataset":
+                  config: DCNNConfig) -> "ImageCxDataset":
         """
         Load data from disk
 
@@ -69,6 +69,10 @@ class ImageCxDataset(torch.utils.data.Dataset):
 
         self._images = image_0_list + image_1_list
         self._lbs = [0] * len(image_0_list) + [1] * len(image_1_list)
+
+        if config.debug_mode:
+            self._images = self._images[:50]
+            self._lbs = self._lbs[:50]
 
         return self
 

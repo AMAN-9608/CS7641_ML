@@ -29,7 +29,7 @@ class CxMetric(Metric):
         self.accuracy = accuracy
 
 
-class BertCxTrainer:
+class ImageCxTrainer:
     """
     Bert trainer used for training BERT for token classification (sequence labeling)
     """
@@ -256,7 +256,7 @@ class BertCxTrainer:
 
             logger.info("Validation results:")
             for k, v in valid_metrics.items():
-                logger.info(f"\t{k}: {v:.4f}")
+                logger.info(f"  {k}: {v:.4f}")
 
             # ----- save model -----
             if self.valid_dataset is not None:
