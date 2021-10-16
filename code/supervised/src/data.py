@@ -57,18 +57,29 @@ class ImageCxDataset(torch.utils.data.Dataset):
         -------
         self (MultiSrcNERDataset)
         """
-        images_0_paths = glob.glob(os.path.join(file_dir, 'NORMAL', '*.jpeg'))
-        images_1_paths = glob.glob(os.path.join(file_dir, 'PNEUMONIA', '*.jpeg'))
+        processed_data_path = os.path.join(file_dir, f'processed_{config.image_size}.pt')
 
-        T = transforms.Compose([transforms.ToTensor(),
-                                transforms.Resize((config.image_size, config.image_size)),
-                                transforms.Normalize(0.5, 0.5)])
+        if os.path.exists(processed_data_path):
+            processed_data = torch.load(processed_data_path)
+            self._images = processed_data['imgs']
+            self._lbs = processed_data['lbs']
 
-        image_0_list = [T(Image.open(img_path)) for img_path in images_0_paths]
-        image_1_list = [T(Image.open(img_path)) for img_path in images_1_paths]
+        else:
+            images_0_paths = glob.glob(os.path.join(file_dir, 'NORMAL', '*.jpeg'))
+            images_1_paths = glob.glob(os.path.join(file_dir, 'PNEUMONIA', '*.jpeg'))
 
-        self._images = image_0_list + image_1_list
-        self._lbs = [0] * len(image_0_list) + [1] * len(image_1_list)
+            T = transforms.Compose([transforms.ToTensor(),
+                                    transforms.Resize((config.image_size, config.image_size)),
+                                    transforms.Normalize(0.5, 0.5)])
+
+            image_0_list = [T(Image.open(img_path)) for img_path in images_0_paths]
+            image_1_list = [T(Image.open(img_path)) for img_path in images_1_paths]
+
+            self._images = image_0_list + image_1_list
+            self._lbs = [0] * len(image_0_list) + [1] * len(image_1_list)
+
+            if config.save_processed_data:
+                torch.save({'imgs': self._images, 'lbs': self._lbs}, processed_data_path)
 
         if config.debug_mode:
             self._images = self._images[:50]

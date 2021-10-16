@@ -2,9 +2,9 @@ import os
 import json
 import torch
 import logging
-import functools
-from typing import Optional, List
+from typing import Optional
 from dataclasses import dataclass, field, asdict
+from transformers.file_utils import cached_property, torch_required
 
 logger = logging.getLogger(__name__)
 
@@ -28,18 +28,22 @@ class DCNNArguments:
         default=128,
         metadata={'help': 'The size of the normalized image'}
     )
+    save_processed_data: Optional[bool] = field(
+        default=False,
+        metadata={'help': 'Whether save the pre-processed images to disk.'}
+    )
     valid_ratio: Optional[float] = field(
         default=0.15,
         metadata={'help': 'Validation ratio'}
     )
     num_train_epochs: Optional[int] = field(
-        default=15, metadata={'help': 'number of denoising model training epochs'}
+        default=100, metadata={'help': 'number of denoising model training epochs'}
     )
     num_valid_tolerance: Optional[int] = field(
         default=10, metadata={"help": "How many tolerance epochs before quiting training"}
     )
     learning_rate: Optional[float] = field(
-        default=1E-3, metadata={'help': 'learning rate'}
+        default=0.001, metadata={'help': 'learning rate'}
     )
     warmup_ratio: Optional[int] = field(
         default=0.2, metadata={'help': 'ratio of warmup steps for learning rate scheduler'}
@@ -67,8 +71,8 @@ class DCNNArguments:
     )
 
     # The following three functions are copied from transformers.training_args
-    @property
-    @functools.lru_cache()
+    @cached_property
+    @torch_required
     def _setup_devices(self) -> "torch.device":
         if self.no_cuda:
             device = torch.device("cpu")
@@ -80,6 +84,7 @@ class DCNNArguments:
         return device
 
     @property
+    @torch_required
     def device(self) -> "torch.device":
         """
         The device used by this process.
@@ -87,6 +92,7 @@ class DCNNArguments:
         return self._setup_devices
 
     @property
+    @torch_required
     def n_gpu(self) -> "int":
         """
         The number of GPUs used by this process.

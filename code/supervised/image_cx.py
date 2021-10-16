@@ -25,7 +25,7 @@ def image_cx(args: DCNNArguments):
     set_seed(args.seed)
     config = DCNNConfig().from_args(args)
 
-    training_dataset = valid_dataset = test_dataset = None
+    training_dataset = test_dataset = None
     if args.train_dir:
         logger.info('Loading training dataset...')
         training_dataset = ImageCxDataset().load_file(
