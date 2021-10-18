@@ -21,6 +21,7 @@ class DCNN(nn.Module):
             [nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, padding=1) for _ in range(2)]
         )
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.dropout = nn.Dropout(config.dropout_ratio)
         self.fc1 = nn.Linear(128 * (config.image_size // 16) ** 2, 128)
         self.fc2 = nn.Linear(128, 32)
         self.fc3 = nn.Linear(32, 2)
@@ -46,7 +47,7 @@ class DCNN(nn.Module):
         c4_out = self.pool(F.relu(c4_out + c4))  # 8
 
         r = torch.flatten(c4_out, 1)  # flatten all dimensions except batch
-        r = F.relu(self.fc1(r))
-        r = F.relu(self.fc2(r))
+        r = self.dropout(F.relu(self.fc1(r)))
+        r = self.dropout(F.relu(self.fc2(r)))
         r = self.fc3(r)
         return r
