@@ -1,15 +1,18 @@
 import os
 import glob
+import torch
+import logging
 import numpy as np
 
 from typing import List, Optional, Union
 from PIL import Image
+from tqdm.auto import tqdm
 
-import torch
-from torch.utils.data import DataLoader
 from torchvision import transforms
 
 from .args import DCNNConfig
+
+logger = logging.getLogger(__name__)
 
 
 class ImageCxDataset(torch.utils.data.Dataset):
@@ -59,7 +62,7 @@ class ImageCxDataset(torch.utils.data.Dataset):
         """
         processed_data_path = os.path.join(file_dir, f'processed_{config.image_size}.pt')
 
-        if os.path.exists(processed_data_path):
+        if os.path.exists(processed_data_path) and not config.refresh_processed_data:
             processed_data = torch.load(processed_data_path)
             self._images = processed_data['imgs']
             self._lbs = processed_data['lbs']
@@ -68,17 +71,20 @@ class ImageCxDataset(torch.utils.data.Dataset):
             images_0_paths = glob.glob(os.path.join(file_dir, 'NORMAL', '*.jpeg'))
             images_1_paths = glob.glob(os.path.join(file_dir, 'PNEUMONIA', '*.jpeg'))
 
-            T = transforms.Compose([transforms.ToTensor(),
+            T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
+                                    transforms.ToTensor(),
                                     transforms.Resize((config.image_size, config.image_size)),
                                     transforms.Normalize(0.5, 0.5)])
 
-            image_0_list = [T(Image.open(img_path)) for img_path in images_0_paths]
-            image_1_list = [T(Image.open(img_path)) for img_path in images_1_paths]
+            img_list = list()
+            logger.info("Building datasets...")
+            for img_path in tqdm(images_0_paths + images_1_paths):
+                img_list.append(T(Image.open(img_path)))
 
-            self._images = image_0_list + image_1_list
-            self._lbs = [0] * len(image_0_list) + [1] * len(image_1_list)
+            self._images = img_list
+            self._lbs = [0] * len(images_0_paths) + [1] * len(images_1_paths)
 
-            if config.save_processed_data:
+            if config.save_processed_data or config.refresh_processed_data:
                 torch.save({'imgs': self._images, 'lbs': self._lbs}, processed_data_path)
 
         if config.debug_mode:

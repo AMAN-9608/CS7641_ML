@@ -32,9 +32,17 @@ class DCNNArguments:
         default=False,
         metadata={'help': 'Whether save the pre-processed images to disk.'}
     )
+    refresh_processed_data: Optional[bool] = field(
+        default=False,
+        metadata={'help': 'Whether refresh the saved pre-processed images in disk.'}
+    )
     valid_ratio: Optional[float] = field(
-        default=0.15,
+        default=0.2,
         metadata={'help': 'Validation ratio'}
+    )
+    dropout_ratio: Optional[float] = field(
+        default=0.2,
+        metadata={'help': 'drop out ratio'}
     )
     num_train_epochs: Optional[int] = field(
         default=100, metadata={'help': 'number of denoising model training epochs'}
@@ -65,6 +73,9 @@ class DCNNArguments:
     )
     seed: Optional[int] = field(
         default=42, metadata={"help": "Random seed that will be set at the beginning of training."}
+    )
+    use_cross_validation: Optional[bool] = field(
+        default=False, metadata={"help": "whether use cross validation"}
     )
     debug_mode: Optional[bool] = field(
         default=False, metadata={"help": "Debugging mode with fewer training data"}
