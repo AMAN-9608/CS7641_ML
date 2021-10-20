@@ -14,9 +14,10 @@ def read_data(size = (400, 400)):
     n_path = os.path.join(training_path, "NORMAL")
     filelist_p = [f for f in os.listdir(pn_path) if os.path.isfile(os.path.join(pn_path, f))]
     filelist_n = [f for f in os.listdir(n_path) if os.path.isfile(os.path.join(n_path, f))]
-    
-    images_pn =  np.array([np.array(Image.open(os.path.join(pn_path, fname)).resize(size)) for fname in filelist_p])
-    images_n =  np.array([np.array(Image.open(os.path.join(n_path, fname)).resize(size)) for fname in filelist_n])
+
+    # read in NORMAL and PNEUMONIA    
+    images_pn =  np.array([np.array(Image.open(os.path.join(pn_path, fname)).convert('L').resize(size)) for fname in filelist_p])
+    images_n =  np.array([np.array(Image.open(os.path.join(n_path, fname)).convert('L').resize(size)) for fname in filelist_n])
 
     images_pn = images_pn.reshape((-1, size[0]*size[1]))
     images_n = images_n.reshape((-1, size[0]*size[1]))
@@ -30,13 +31,19 @@ def read_data(size = (400, 400)):
 
     total_data = np.concatenate((images_pn, images_n), axis=0)
 
-    outfile = "data_{}_{}.pkl".format(size[0], size[1])
+    outfile = "data_train_{}_{}.pkl".format(size[0], size[1])
     file = open(os.path.join(datapath, outfile), 'wb')
+    file.close()
     pickle.dump(total_data, file)
 
     return os.path.join(datapath, outfile)
 
-    
+
+def load_from_pickle(file):
+    infile = open(file,'rb')
+    data = pickle.load(infile)
+    infile.close()
+    return data
 
 if __name__ == "__main__":
     read_data(size=(2,2))
