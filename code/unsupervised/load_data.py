@@ -33,8 +33,9 @@ def read_data(size = (400, 400)):
 
     outfile = "data_train_{}_{}.pkl".format(size[0], size[1])
     file = open(os.path.join(datapath, outfile), 'wb')
-    file.close()
+    
     pickle.dump(total_data, file)
+    file.close()
 
     return os.path.join(datapath, outfile)
 
