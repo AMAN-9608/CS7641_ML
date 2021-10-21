@@ -10,11 +10,12 @@ def pca_transformation(data,n_comp):
     data_no_labels = data[:,:-1]
     pca = PCA(n_comp)
     transformed_data = pca.fit_transform(data_no_labels)
-    print(np.sum(pca.explained_variance_ratio_))
+    print("Preserved variance = {}".format(np.sum(pca.explained_variance_ratio_)))
     return np.hstack((transformed_data,data[:,-1].reshape((len(data),1))))
 
-def pca_pipline(data, resize=(400,400), n_comp=100, save=True):
+def pca_pipeline(resize=(400,400), n_comp=100, save=True):
     data = load_data(resize)
+    print("PCA with n_comp = {}".format(n_comp))
     pca_trans = pca_transformation(data, n_comp)
     if save:
         filename = "pca_data_{}_{}_{}.npy".format(resize[0], resize[1], n_comp)
@@ -25,4 +26,4 @@ def pca_pipline(data, resize=(400,400), n_comp=100, save=True):
     return pca_trans
 
 if __name__ == "__main__":
-    pca_pipline()
+    pca_pipeline(resize=(300,300))
