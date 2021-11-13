@@ -1,6 +1,8 @@
 # CS 7641 Course Project
 
-## Project Group 14: Amandeep Singh, Rajan V Tayal, Sai Shanbhag, Siddharth Sen, Yinghao Li
+> Project Group 14: Amandeep Singh, Rajan V Tayal, Sai Shanbhag, Siddharth Sen, Yinghao Li
+
+## Proposal
 
 ### Introduction
 <p align="justify">
@@ -58,6 +60,40 @@ Next, we shall measure the performance of each of our supervised classification 
 <p align="justify">
 For the Midterm, we expect to be done with a baseline model that incorporates both supervised and unsupervised learning. Moving onwards to the Endterm, we'll spend our time comparing models and fine-tuning the selected model.<br>
 For this proposal, all team members have contributed a similar amount of effort into researching related literature and drafting the different sections of the document.  Moving forward, we are going to distribute the work among the group – tentatively, 3 members (Amandeep, Siddharth, Yinghao) are going to work on the supervised learning aspect, while 2 members (Sai and Rajan) are going to primarily focus on the unsupervised learning aspect of the project. Task delegation is flexible and will be adjusted as needed; deliverables between the two groups will be communicated clearly to ensure the best possible result.</p>
+
+
+## Midterm
+
+### Methods
+
+#### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
+
+For the supervised method, we currently target the binary image classification task: has pneumonia or not.
+To address this issue, we use a deep convolutional neural network (DCNN) with the residual connection that alleviates the gradient vanishing problem.
+The model contains nine convolutional layers, which are put into three groups.
+
+The first layer of each group doubles the number of the channels of the convolutional kernel, which is maintained by the following two layers.
+A residual connection links the input and output of those two layers with addition operation.
+One exception is the very first convolutional layer, which takes the one-channel input and produces a 32-channel output.
+At the end of each group, we adopt a max polling layer with kernel size $2\times2$ and $2$ stride to reduce the image resolution by half.
+
+The output of the convolutional groups is flattened and followed by three fully connected layers.
+The output of the last fully connected layer is $2$-dimensional, which matches the number of classes.
+In addition, we use a dropout ratio $0.1$ and ReLU activation function throughout the model.
+
+All images are converted to $128\times128$ pixels with $1$ luminance channel before being fed into the model.
+However, this number may change in later improvements.
+A $5$-fold cross-validation is used to realize early stopping.
+
+### Results
+
+#### Supervised Approach
+The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with $0.2$ warmup ratio.
+We use F1 score as the early stopping reference metric.
+Within $100$ training epochs, the best F1 score the model achieves on the validation/training set is $0.9895$.
+Other metrics of the best model are $0.9895$ precision, $0.9895$ recall and $0.9846$ accuracy.
+On the test set, the metrics are: accuracy: $0.7692$; precision: $0.7312$; recall: $0.9974$;  f1: $0.8438$.
+These results indicate severe over-fitting, which we will try to resolve in the following research.
 
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
