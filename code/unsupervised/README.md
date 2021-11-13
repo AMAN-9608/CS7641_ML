@@ -18,3 +18,4 @@ Included file: kmeans.py
 - generates confusion matrix comparing predicted labels via clustering to the actual y labels
   ![image](https://user-images.githubusercontent.com/40197136/141605798-074e9fad-5375-40a8-90b7-99984732d39a.png)
 - generates visualization for the first 3 PCA components to see distribution of Pneumonia vs Non-Pneumonia images.
+  ![image](https://user-images.githubusercontent.com/40197136/141605809-b95cebe4-7e5a-469a-804d-343fd840bea1.png)
