@@ -10,3 +10,10 @@ The output of pca_pipeline is a Nx(n_comp + 1) array, with the last column being
 - 0 is NORMAL
 - 1 is bacterial PNEUMONIA
 - 2 is viral PNEUMONIA
+
+# kMeans Code
+
+Included files: kmeans.py
+- takes data from PCA output and using the first 100 PCA components to perform k-means clustering. Accuracy score reported. 
+- generates confusion matrix comparing predicted labels via clustering to the actual y labels
+- generates visualization for the first 3 PCA components to see distribution of Pneumonia vs Non-Pneumonia images.
