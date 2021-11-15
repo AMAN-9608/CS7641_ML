@@ -19,3 +19,21 @@ Included file: kmeans.py
   ![image](https://user-images.githubusercontent.com/40197136/141605798-074e9fad-5375-40a8-90b7-99984732d39a.png)
 - generates visualization for the first 3 PCA components to see distribution of Pneumonia vs Non-Pneumonia images.
   ![image](https://user-images.githubusercontent.com/40197136/141605809-b95cebe4-7e5a-469a-804d-343fd840bea1.png)
+  
+  
+# Supervised Classification Results 
+  
+ We used the first 100 principal components to build supervised classification models in order to classify the images as ‘normal’ or ‘viral’. Reducing the number of features in the flattened image (400 x 400) from 1,60,000 to 100 with PCA will help reduce overfitting on our training dataset of 4172 images.
+
+Support Vector Classifier, Random Forest Classifier and Logistic Regression were the models which we tested on our training dataset which had dimensions of 4172 x 100. A grid search based 5-fold cross validation routine was used to fine-tune the hyperparameters of these models. Model performance metrics on test dataset are shown in the table below :
+
+
+| Model    | Precision | Recall | Accuracy Score |
+-----------|-----------|--------|----------------|
+  SVM      | 0.9690    | 0.9728 |    0.9568      
+  RF       | 0.9845    | 0.9305 |    0.9339      
+  Logistic | 0.9690    | 0.9728 |    0.9568      
+
+ 
+From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. As a next step, we will re-train these models on features obtained via t-sne; another dimensionality reduction technique to select the best feature reduction method for our dataset. We also plan to develop a web based interactive framework to deploy our trained models and classify new incoming images as normal or viral.
+
