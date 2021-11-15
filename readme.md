@@ -66,6 +66,9 @@ For this proposal, all team members have contributed a similar amount of effort 
 
 ### Methods
 
+#### Unsupervised Approach: Principal Component Analysis
+
+
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
 
 For the supervised method, we currently target the binary image classification task: has pneumonia or not.
