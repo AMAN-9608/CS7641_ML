@@ -85,6 +85,12 @@ T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
 The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain the first 100 principal components which captured 86.59% of the variance. Given the volume of images we were working with, this decision made sense as it striked an optimal balance between size and explained variance.
 </p>
 
+#### Unsupervised Approach: k-Means
+
+As a first pass, we converted the output variable to be binary (as 'Pneumonia' or 'Normal') instead of using all three labels. Then we took the first 100 principal components obtained after applying PCA on the given training dataset and applied a k-means clustering with number of clusters, $k = 2$. The idea here is to roughly look for two different clusters pertaining to pneumonia or normal, corresponding to our PCA transformed dataset. 
+
+We compared our k-means output to the actual labels to get an accuracy score, to indicate clustering performance. But since we do not know which label 0 or 1 pertains to (normal or pneumonia) we compared accuracy for both permutations and took the highest accuracy score. 
+
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
 
 For the supervised method, we currently target the binary image classification task: has pneumonia or not.
@@ -105,6 +111,25 @@ However, this number may change in later improvements.
 A $5$-fold cross-validation is used to realize early stopping.
 
 ### Results
+
+#### Unsupervised Approach: PCA
+We selected the first three principal components from the PCA transformed data to visualize our dataset, as follows:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/40197136/141605809-b95cebe4-7e5a-469a-804d-343fd840bea1.png" />
+</p>
+
+The blue datapoints indicate 'Pneumonia' whereas the orange ones indicate 'Normal'.
+
+#### Unsupervised Approach: k-Means
+We achieved an accuracy score of $0.52$, with the following confusion matrix.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/40197136/141605798-074e9fad-5375-40a8-90b7-99984732d39a.png" />
+</p>
+From the confusion matrix, we can see that the clustering model is performing moderately well in categorizing the pneumonia images correctly. However, it categorizes most of the normal ones as pneumonia as well, indicating that precision is lower than the recall. 
+  
+Given the nature of the problem, it is generally beneficial to have a higher recall score, since we would be more inclined to avoid False Negatives while detecting pneumonia instead of minimizing False Positives, however, the magnitude of False Positives is too high in this case for it to be an acceptable model. 
+It would thus make more sense for us to go for a supervised approach for better model performance.
 
 #### Supervised Approach
 The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with $0.2$ warmup ratio.
