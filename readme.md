@@ -110,7 +110,8 @@ At the end of each group, we adopt a max polling layer with kernel size $2\times
 The output of the convolutional groups is flattened and followed by three fully connected layers.
 The output of the last fully connected layer is <img src="https://render.githubusercontent.com/render/math?math=2">-dimensional, which matches the number of classes.
 In addition, we use a dropout ratio <img src="https://render.githubusercontent.com/render/math?math=0.1"> and ReLU activation function throughout the model.
-
+</p>
+<p align="justify">
 All images are converted to <img src="https://render.githubusercontent.com/render/math?math=128 \times 128"> pixels with <img src="https://render.githubusercontent.com/render/math?math=1"> luminance channel before being fed into the model.
 However, this number may change in later improvements.
 A <img src="https://render.githubusercontent.com/render/math?math=5">-fold cross-validation is used to realize early stopping.
@@ -132,23 +133,30 @@ We achieved an accuracy score of <img src="https://render.githubusercontent.com/
 <p align="center">
   <img src="https://user-images.githubusercontent.com/40197136/141605798-074e9fad-5375-40a8-90b7-99984732d39a.png" />
 </p>
+<p align="justify">
 From the confusion matrix, we can see that the clustering model is performing moderately well in categorizing the pneumonia images correctly. However, it categorizes most of the normal ones as pneumonia as well, indicating that precision is lower than the recall. 
-  
+</p>
+<p align="justify">
 Given the nature of the problem, it is generally beneficial to have a higher recall score, since we would be more inclined to avoid False Negatives while detecting pneumonia instead of minimizing False Positives, however, the magnitude of False Positives is too high in this case for it to be an acceptable model. 
 It would thus make more sense for us to go for a supervised approach for better model performance.
+</p>
 
 #### Supervised Approach
+<p align="justify">
 The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with <img src="https://render.githubusercontent.com/render/math?math=0.2"> warmup ratio.
 We use F1 score as the early stopping reference metric.
 Within <img src="https://render.githubusercontent.com/render/math?math=100"> training epochs, the best F1 score the model achieves on the validation/training set is <img src="https://render.githubusercontent.com/render/math?math=0.9895">.
 Other metrics of the best model are <img src="https://render.githubusercontent.com/render/math?math=0.9895"> precision, <img src="https://render.githubusercontent.com/render/math?math=0.9895"> recall and <img src="https://render.githubusercontent.com/render/math?math=0.9846"> accuracy.
 On the test set, the metrics are: accuracy: <img src="https://render.githubusercontent.com/render/math?math=0.7692">; precision: <img src="https://render.githubusercontent.com/render/math?math=0.7312">; recall: <img src="https://render.githubusercontent.com/render/math?math=0.9974">;  f1: <img src="https://render.githubusercontent.com/render/math?math=0.8438">.
 These results indicate severe over-fitting, which we will try to resolve in the following research.
+</p>
 
 #### Supervised Classification : Using PCA components 
-  
-We used the first 100 principal components to build supervised classification models in order to classify the images as ‘normal’ or ‘pneumonia’. Reducing the number of features in the flattened image (400 x 400) from 1,60,000 to 100 with PCA will help reduce overfitting on our training dataset of 4172 images.
 
+<p align="justify">
+We used the first 100 principal components to build supervised classification models in order to classify the images as ‘normal’ or ‘pneumonia’. Reducing the number of features in the flattened image (400 x 400) from 1,60,000 to 100 with PCA will help reduce overfitting on our training dataset of 4172 images.
+</p>
+<p align="justify">
 Support Vector Classifier, Random Forest Classifier and Logistic Regression were the models which we tested on our training dataset which had dimensions of 4172 x 100. A grid search based 5-fold cross validation routine was used to fine-tune the hyperparameters of these models. Model performance metrics on test dataset are shown in the table below :
 
 
@@ -158,9 +166,10 @@ Support Vector Classifier, Random Forest Classifier and Logistic Regression were
   RF       | 0.9845    | 0.9305 |    0.9339      
   Logistic | 0.9690    | 0.9728 |    0.9568      
 
- 
+</p>
+<p align="justify">
 From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. As a next step, we will re-train these models on features obtained via t-sne; another dimensionality reduction technique to select the best feature reduction method for our dataset. We also plan to develop a web based interactive framework to deploy our trained models and classify new incoming images as normal or viral.
-
+</p>
 
 
 ### References
