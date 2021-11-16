@@ -82,7 +82,7 @@ T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
 ```
 
 <p align="justify">
-The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain 100 principal components which captured 86.59% of the variance. Given the volume of images we were working with, this decision made sense as it striked an optimal balance between size and explained variance.
+The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain the first 100 principal components which captured 86.59% of the variance. Given the volume of images we were working with, this decision made sense as it striked an optimal balance between size and explained variance.
 </p>
 
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
