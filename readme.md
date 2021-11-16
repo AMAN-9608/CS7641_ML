@@ -67,7 +67,7 @@ For this proposal, all team members have contributed a similar amount of effort 
 ### Methods
 
 #### Unsupervised Approach: Principal Component Analysis
-
+<p align="justify">
 For the unsupervised method, the goal was to implement principal component analysis for dimension reduction. Since images are combinations of pixels stacked on along one another, where each pixel represents the intensity (for grayscale images), so given multiple images we can form a matrix considering a row of pixels as a vector. Working with thousands of such images requires huge amounts of storage,  we are using PCA is used to compress them and preserve as much data as possible.
 
 The first step was to resize, convert to grayscale, and normalize all the input images. This was achieved via PyTorch's transforms operations:
@@ -80,7 +80,7 @@ T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
 ```
 
 The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain 100 principal components which captured 86.59% of the variance. Given the volume of images we were working with, this decision made sense as it striked an optimal balance between size and explained variance.
-
+</p>
 
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
 
