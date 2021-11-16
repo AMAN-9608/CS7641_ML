@@ -87,7 +87,7 @@ The next step was to convert these images to <img src="https://render.githubuser
 
 #### Unsupervised Approach: k-Means
 
-As a first pass, we converted the output variable to be binary (as 'Pneumonia' or 'Normal') instead of using all three labels. Then we took the first 100 principal components obtained after applying PCA on the given training dataset and applied a k-means clustering with number of clusters, $k = 2$. The idea here is to roughly look for two different clusters pertaining to pneumonia or normal, corresponding to our PCA transformed dataset. 
+As a first pass, we converted the output variable to be binary (as 'Pneumonia' or 'Normal') instead of using all three labels. Then we took the first 100 principal components obtained after applying PCA on the given training dataset and applied a k-means clustering with number of clusters, <img src="https://render.githubusercontent.com/render/math?math=k = 2">. The idea here is to roughly look for two different clusters pertaining to pneumonia or normal, corresponding to our PCA transformed dataset. 
 
 We compared our k-means output to the actual labels to get an accuracy score, to indicate clustering performance. But since we do not know which label 0 or 1 pertains to (normal or pneumonia) we compared accuracy for both permutations and took the highest accuracy score. 
 
@@ -103,12 +103,12 @@ One exception is the very first convolutional layer, which takes the one-channel
 At the end of each group, we adopt a max polling layer with kernel size $2\times2$ and $2$ stride to reduce the image resolution by half.
 
 The output of the convolutional groups is flattened and followed by three fully connected layers.
-The output of the last fully connected layer is $2$-dimensional, which matches the number of classes.
-In addition, we use a dropout ratio $0.1$ and ReLU activation function throughout the model.
+The output of the last fully connected layer is <img src="https://render.githubusercontent.com/render/math?math=2">-dimensional, which matches the number of classes.
+In addition, we use a dropout ratio <img src="https://render.githubusercontent.com/render/math?math=0.1"> and ReLU activation function throughout the model.
 
-All images are converted to $128\times128$ pixels with $1$ luminance channel before being fed into the model.
+All images are converted to <img src="https://render.githubusercontent.com/render/math?math=128 \times 128"> pixels with <img src="https://render.githubusercontent.com/render/math?math=1"> luminance channel before being fed into the model.
 However, this number may change in later improvements.
-A $5$-fold cross-validation is used to realize early stopping.
+A <img src="https://render.githubusercontent.com/render/math?math=5">-fold cross-validation is used to realize early stopping.
 
 ### Results
 
@@ -122,7 +122,7 @@ We selected the first three principal components from the PCA transformed data t
 The blue datapoints indicate 'Pneumonia' whereas the orange ones indicate 'Normal'.
 
 #### Unsupervised Approach: k-Means
-We achieved an accuracy score of $0.52$, with the following confusion matrix.
+We achieved an accuracy score of <img src="https://render.githubusercontent.com/render/math?math=0.52">, with the following confusion matrix.
 <p align="center">
   <img src="https://user-images.githubusercontent.com/40197136/141605798-074e9fad-5375-40a8-90b7-99984732d39a.png" />
 </p>
@@ -132,11 +132,11 @@ Given the nature of the problem, it is generally beneficial to have a higher rec
 It would thus make more sense for us to go for a supervised approach for better model performance.
 
 #### Supervised Approach
-The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with $0.2$ warmup ratio.
+The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with <img src="https://render.githubusercontent.com/render/math?math=0.2"> warmup ratio.
 We use F1 score as the early stopping reference metric.
-Within $100$ training epochs, the best F1 score the model achieves on the validation/training set is $0.9895$.
-Other metrics of the best model are $0.9895$ precision, $0.9895$ recall and $0.9846$ accuracy.
-On the test set, the metrics are: accuracy: $0.7692$; precision: $0.7312$; recall: $0.9974$;  f1: $0.8438$.
+Within <img src="https://render.githubusercontent.com/render/math?math=100"> training epochs, the best F1 score the model achieves on the validation/training set is <img src="https://render.githubusercontent.com/render/math?math=0.9895">.
+Other metrics of the best model are <img src="https://render.githubusercontent.com/render/math?math=0.9895"> precision, <img src="https://render.githubusercontent.com/render/math?math=0.9895"> recall and <img src="https://render.githubusercontent.com/render/math?math=0.9846"> accuracy.
+On the test set, the metrics are: accuracy: <img src="https://render.githubusercontent.com/render/math?math=0.7692">; precision: <img src="https://render.githubusercontent.com/render/math?math=0.7312">; recall: <img src="https://render.githubusercontent.com/render/math?math=0.9974">;  f1: <img src="https://render.githubusercontent.com/render/math?math=0.8438">.
 These results indicate severe over-fitting, which we will try to resolve in the following research.
 
 #### Supervised Classification : Using PCA components 
