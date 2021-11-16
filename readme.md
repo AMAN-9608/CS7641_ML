@@ -104,7 +104,7 @@ The model contains nine convolutional layers, which are put into three groups.
 The first layer of each group doubles the number of the channels of the convolutional kernel, which is maintained by the following two layers.
 A residual connection links the input and output of those two layers with addition operation.
 One exception is the very first convolutional layer, which takes the one-channel input and produces a 32-channel output.
-At the end of each group, we adopt a max polling layer with kernel size $2\times2$ and $2$ stride to reduce the image resolution by half.
+At the end of each group, we adopt a max polling layer with kernel size <img src="https://render.githubusercontent.com/render/math?math=2 \times 2"> and <img src="https://render.githubusercontent.com/render/math?math=2"> stride to reduce the image resolution by half.
 </p>
 <p align="justify">
 The output of the convolutional groups is flattened and followed by three fully connected layers.
