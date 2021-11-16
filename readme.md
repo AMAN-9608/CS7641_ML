@@ -69,7 +69,7 @@ For this proposal, all team members have contributed a similar amount of effort 
 #### Unsupervised Approach: Principal Component Analysis
 
 For the unsupervised method, the goal was to implement principal component analysis in order to achieve a better separation between the classes.
-The first step was to resize, convert to grayscale, and normalize all the input images. The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math400\times400">
+The first step was to resize, convert to grayscale, and normalize all the input images. The next step was to convert these images to 400x400 before applying PCA. 
 
 
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
