@@ -161,12 +161,12 @@ Support Vector Classifier, Random Forest Classifier and Logistic Regression were
 
 
 | Model    | Precision | Recall | Accuracy Score |
------------|-----------|--------|----------------| 
-  
+-----------|-----------|--------|----------------|  
   SVM      | 0.9690    | 0.9728 |    0.9568      
   RF       | 0.9845    | 0.9305 |    0.9339      
   Logistic | 0.9690    | 0.9728 |    0.9568      
 
+  
 </p>
 <p align="justify">
 From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. As a next step, we will re-train these models on features obtained via t-sne; another dimensionality reduction technique to select the best feature reduction method for our dataset. We also plan to develop a web based interactive framework to deploy our trained models and classify new incoming images as normal or viral.
