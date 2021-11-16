@@ -73,6 +73,7 @@ For the unsupervised method, the goal was to implement principal component analy
 <p align="justify">
 The first step was to resize, convert to grayscale, and normalize all the input images. This was achieved via PyTorch's transforms operations:
 </p>
+
 ```
 T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
                         transforms.ToTensor(),
