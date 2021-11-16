@@ -68,7 +68,7 @@ For this proposal, all team members have contributed a similar amount of effort 
 
 #### Unsupervised Approach: Principal Component Analysis
 <p align="justify">
-For the unsupervised method, the goal was to utilize principal component analysis (PCA) for dimension reduction. Images can be represented as 2 dimensional matrices of intensityes (for grayscale images), and therefore a single image can be represented as a linearized vector of it's pixel values. Storing thousands of such feature vectors for whole images in memory is infeasible, as each image consists of thousands of pixels. We use PCA to reduce the dimensionality of this dataset, making the process of loading and learning from these images tractable. This will allow us to dramatically speed up our approach while also preserving mush of the information for our unsupervsed algorithm. 
+For the unsupervised method, the goal was to utilize principal component analysis (PCA) for dimension reduction. Images can be represented as 2 dimensional matrices of intensityes (for grayscale images), and therefore a single image can be represented as a linearized vector of it's pixel values. Storing thousands of such feature vectors for whole images in memory is infeasible, as each image consists of thousands of pixels. We use PCA to reduce the dimensionality of this dataset, making the process of loading and learning from these images tractable. This will allow us to dramatically speed up our approach while also preserving much of the information for our unsupervsed algorithm. 
 </p>
 <p align="justify">
 A challenge we encountered was that the dataset of x-ray images were of various sizes. So the first step was to resize, convert to grayscale, and normalize all the input images. This was achieved via PyTorch's transforms operations:
@@ -82,7 +82,7 @@ T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
 ```
 
 <p align="justify">
-The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain the first 100 principal components which captured 86.59% of the variance. Given the volume of images we were working with, this decision made sense as it striked an optimal balance between size and explained variance.
+The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain the first 100 principal components which captured 86.59% of the variance. Given the volume of images we were working with, this decision made sense as it had an optimal balance between size and explained variance.
 </p>
 
 #### Unsupervised Approach: k-Means
