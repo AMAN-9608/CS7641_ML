@@ -86,22 +86,27 @@ The next step was to convert these images to <img src="https://render.githubuser
 </p>
 
 #### Unsupervised Approach: k-Means
-
+<p align="justify">
 As a first pass, we converted the output variable to be binary (as 'Pneumonia' or 'Normal') instead of using all three labels. Then we took the first 100 principal components obtained after applying PCA on the given training dataset and applied a k-means clustering with number of clusters, <img src="https://render.githubusercontent.com/render/math?math=k = 2">. The idea here is to roughly look for two different clusters pertaining to pneumonia or normal, corresponding to our PCA transformed dataset. 
-
+</p>
+<p align="justify">
 We compared our k-means output to the actual labels to get an accuracy score, to indicate clustering performance. But since we do not know which label 0 or 1 pertains to (normal or pneumonia) we compared accuracy for both permutations and took the highest accuracy score. 
+</p>
 
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
 
+<p align="justify">
 For the supervised method, we currently target the binary image classification task: has pneumonia or not.
 To address this issue, we use a deep convolutional neural network (DCNN) with the residual connection that alleviates the gradient vanishing problem.
 The model contains nine convolutional layers, which are put into three groups.
-
+</p>
+<p align="justify">
 The first layer of each group doubles the number of the channels of the convolutional kernel, which is maintained by the following two layers.
 A residual connection links the input and output of those two layers with addition operation.
 One exception is the very first convolutional layer, which takes the one-channel input and produces a 32-channel output.
 At the end of each group, we adopt a max polling layer with kernel size $2\times2$ and $2$ stride to reduce the image resolution by half.
-
+</p>
+<p align="justify">
 The output of the convolutional groups is flattened and followed by three fully connected layers.
 The output of the last fully connected layer is <img src="https://render.githubusercontent.com/render/math?math=2">-dimensional, which matches the number of classes.
 In addition, we use a dropout ratio <img src="https://render.githubusercontent.com/render/math?math=0.1"> and ReLU activation function throughout the model.
@@ -109,6 +114,7 @@ In addition, we use a dropout ratio <img src="https://render.githubusercontent.c
 All images are converted to <img src="https://render.githubusercontent.com/render/math?math=128 \times 128"> pixels with <img src="https://render.githubusercontent.com/render/math?math=1"> luminance channel before being fed into the model.
 However, this number may change in later improvements.
 A <img src="https://render.githubusercontent.com/render/math?math=5">-fold cross-validation is used to realize early stopping.
+</p>
 
 ### Results
 
