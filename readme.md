@@ -167,6 +167,35 @@ Support Vector Classifier, Random Forest Classifier and Logistic Regression were
 | RF       | 0.9845    | 0.9305 |    0.9339  |    
 |  Logistic | 0.9690    | 0.9728 |    0.9568 |     
   
+  
+<table>
+<tbody>
+<tr>
+<td>Model</td>
+<td>Precision</td>
+<td>Recall</td>
+<td>Accuracy Score</td>
+</tr>
+<tr>
+<td>SVM</td>
+<td>0.9690</td>
+<td>0.9728</td>
+<td>0.9568</td>
+</tr>
+<tr>
+<td>RF</td>
+<td>0.9845</td>
+<td>0.9305</td>
+<td>0.9339</td>
+</tr>
+<tr>
+<td>Logistic</td>
+<td>0.9690</td>
+<td>0.9728</td>
+<td>0.9568</td>
+</tr>
+</tbody>
+</table>
 
   
 </p>
