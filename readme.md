@@ -161,8 +161,7 @@ Support Vector Classifier, Random Forest Classifier and Logistic Regression were
 
 
 | Model    | Precision | Recall | Accuracy Score |
-  
------------|-----------|--------|----------------|
+-----------|-----------|--------|----------------| 
   
   SVM      | 0.9690    | 0.9728 |    0.9568      
   RF       | 0.9845    | 0.9305 |    0.9339      
