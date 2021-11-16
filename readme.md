@@ -68,10 +68,10 @@ For this proposal, all team members have contributed a similar amount of effort 
 
 #### Unsupervised Approach: Principal Component Analysis
 <p align="justify">
-For the unsupervised method, the goal was to implement principal component analysis for dimension reduction. Since images are combinations of pixels stacked on along one another, where each pixel represents the intensity (for grayscale images), so given multiple images we can form a matrix considering a row of pixels as a vector. Working with thousands of such images requires huge amounts of storage,  we are using PCA is used to compress them and preserve as much data as possible.
+For the unsupervised method, the goal was to utilize principal component analysis (PCA) for dimension reduction. Images can be represented as 2 dimensional matrices of intensityes (for grayscale images), and therefore a single image can be represented as a linearized vector of it's pixel values. Storing thousands of such feature vectors for whole images in memory is infeasible, as each image consists of thousands of pixels. We use PCA to reduce the dimensionality of this dataset, making the process of loading and learning from these images tractable. This will allow us to dramatically speed up our approach while also preserving mush of the information for our unsupervsed algorithm. 
 </p>
 <p align="justify">
-The first step was to resize, convert to grayscale, and normalize all the input images. This was achieved via PyTorch's transforms operations:
+A challenge we encountered was that the dataset of x-ray images were of various sizes. So the first step was to resize, convert to grayscale, and normalize all the input images. This was achieved via PyTorch's transforms operations:
 </p>
 
 ```
