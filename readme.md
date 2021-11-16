@@ -144,9 +144,9 @@ It would thus make more sense for us to go for a supervised approach for better 
 #### Supervised Approach
 <p align="justify">
 The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with <img src="https://render.githubusercontent.com/render/math?math=0.2"> warmup ratio.
-We use F1 score as the early stopping reference metric.  
+We use F1 score as the early stopping reference metric.\
 Within <img src="https://render.githubusercontent.com/render/math?math=100"> training epochs, the best F1 score the model achieves on the validation/training set is <img src="https://render.githubusercontent.com/render/math?math=0.9895">.
-Other metrics of the best model are <img src="https://render.githubusercontent.com/render/math?math=0.9895"> precision, <img src="https://render.githubusercontent.com/render/math?math=0.9895"> recall and <img src="https://render.githubusercontent.com/render/math?math=0.9846"> accuracy.  
+Other metrics of the best model are <img src="https://render.githubusercontent.com/render/math?math=0.9895"> precision, <img src="https://render.githubusercontent.com/render/math?math=0.9895"> recall and <img src="https://render.githubusercontent.com/render/math?math=0.9846"> accuracy.\  
 On the test set, the metrics are: accuracy: <img src="https://render.githubusercontent.com/render/math?math=0.7692">; precision: <img src="https://render.githubusercontent.com/render/math?math=0.7312">; recall: <img src="https://render.githubusercontent.com/render/math?math=0.9974">;  f1: <img src="https://render.githubusercontent.com/render/math?math=0.8438">.
 These results indicate severe over-fitting, which we will try to resolve in the following research.
 </p>
