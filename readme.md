@@ -157,17 +157,7 @@ These results indicate severe over-fitting, which we will try to resolve in the 
 We used the first 100 principal components to build supervised classification models in order to classify the images as ‘normal’ or ‘pneumonia’. Reducing the number of features in the flattened image (400 x 400) from 1,60,000 to 100 with PCA will help reduce overfitting on our training dataset of 4172 images.
 </p>
 <p align="justify">
-Support Vector Classifier, Random Forest Classifier and Logistic Regression were the models which we tested on our training dataset which had dimensions of 4172 x 100. A grid search based 5-fold cross validation routine was used to fine-tune the hyperparameters of these models. Model performance metrics on test dataset are shown in the table below :
-
-  
-
-| Model    | Precision | Recall | Accuracy Score |
------------|-----------|--------|----------------|  
-|  SVM      | 0.9690    | 0.9728 |    0.9568     | 
-| RF       | 0.9845    | 0.9305 |    0.9339  |    
-|  Logistic | 0.9690    | 0.9728 |    0.9568 |     
-  
-  
+Support Vector Classifier, Random Forest Classifier and Logistic Regression were the models which we tested on our training dataset which had dimensions of 4172 x 100. A grid search based 5-fold cross validation routine was used to fine-tune the hyperparameters of these models. Model performance metrics on test dataset are shown in the table below :  
 <table>
 <tbody>
 <tr>
