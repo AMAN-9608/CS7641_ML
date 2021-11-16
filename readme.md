@@ -114,6 +114,24 @@ Other metrics of the best model are $0.9895$ precision, $0.9895$ recall and $0.9
 On the test set, the metrics are: accuracy: $0.7692$; precision: $0.7312$; recall: $0.9974$;  f1: $0.8438$.
 These results indicate severe over-fitting, which we will try to resolve in the following research.
 
+#### Supervised Classification : Using PCA components 
+  
+We used the first 100 principal components to build supervised classification models in order to classify the images as ‘normal’ or ‘pneumonia’. Reducing the number of features in the flattened image (400 x 400) from 1,60,000 to 100 with PCA will help reduce overfitting on our training dataset of 4172 images.
+
+Support Vector Classifier, Random Forest Classifier and Logistic Regression were the models which we tested on our training dataset which had dimensions of 4172 x 100. A grid search based 5-fold cross validation routine was used to fine-tune the hyperparameters of these models. Model performance metrics on test dataset are shown in the table below :
+
+
+| Model    | Precision | Recall | Accuracy Score |
+-----------|-----------|--------|----------------|
+  SVM      | 0.9690    | 0.9728 |    0.9568      
+  RF       | 0.9845    | 0.9305 |    0.9339      
+  Logistic | 0.9690    | 0.9728 |    0.9568      
+
+ 
+From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. As a next step, we will re-train these models on features obtained via t-sne; another dimensionality reduction technique to select the best feature reduction method for our dataset. We also plan to develop a web based interactive framework to deploy our trained models and classify new incoming images as normal or viral.
+
+
+
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
 Fischer, Peter, et al. [Unsupervised Learning for Robust Respiratory Signal Estimation from X-Ray Fluoroscopy](https://doi.org/10.1109/tmi.2016.2609888) <br>
