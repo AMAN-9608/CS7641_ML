@@ -133,3 +133,4 @@ dmypy.json
 output/
 *.pt
 *.bin
+code/supervised/seqlbtoolkit
