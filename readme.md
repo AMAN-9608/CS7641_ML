@@ -193,6 +193,14 @@ Support Vector Classifier, Random Forest Classifier and Logistic Regression were
 From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. As a next step, we will re-train these models on features obtained via t-sne; another dimensionality reduction technique to select the best feature reduction method for our dataset. We also plan to develop a web based interactive framework to deploy our trained models and classify new incoming images as normal or viral.
 </p>
 
+### Conclusion
+
+With the recent COVID-19 outbreak, we have seen a rise in the number of cases of pneumonia observed in adults, especially senior citizens and those who have prior medical conditions. In times like these, developing a pneumonia detection model with quick and accurate results has been extremely gratifying experience as it allowed us to contribute in fight against the pandemic in our own small way. 
+
+Throughout the modelling process, we used a combination of supervised and unsupervised approaches in order to come up with the best classification model for the analysis. We used PCA to transform and visualize the data following which we tried to use clustering to identify distinct clusters for normal and pneumonia x-rays. Following this, we used multiple 
+supervised learning approaches including support vector machines, random forest and logistic regression. However, as we had hypothesized, the best model for an image classification task such as this turned out to be the Deep Convolutional Neural Networks (DCNN) model, which is the final model that we ended up using.
+
+The project was a great collaborative experience as it allowed us to work together in a team. We were able to directly apply what we have learnt in class while at the same time see the results of different methods that we decided to use. Working on implementing the code for our models first hand was an enriching experience, as it gave us a flavour of how to build and develop code in a collaborative manner while at the same time converting the theory material learnt from class and implementing them in practice. We also got some exposure into a typical machine learning project pipeline that is used in the industry. Working on this project in a collaborative manner as a team was an extremely educational experience and we are grateful for being given the opportunity to do so.
 
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
