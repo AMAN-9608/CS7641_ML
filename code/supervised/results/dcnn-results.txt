@@ -1,50 +1,26 @@
 [Epoch 1]
-  accuracy: 0.7329  precision: 0.7329  recall: 1.0000  f1: 0.8459
+  accuracy: 0.9337  precision: 0.9518  recall: 0.9581  f1: 0.9549
 [Epoch 2]
-  accuracy: 0.9126  precision: 0.9364  recall: 0.9450  f1: 0.9406
+  accuracy: 0.9616  precision: 0.9665  recall: 0.9817  f1: 0.9740
 [Epoch 3]
-  accuracy: 0.9424  precision: 0.9756  recall: 0.9450  f1: 0.9601
+  accuracy: 0.9625  precision: 0.9665  recall: 0.9830  f1: 0.9747
 [Epoch 4]
-  accuracy: 0.9491  precision: 0.9837  recall: 0.9463  f1: 0.9646
+  accuracy: 0.9683  precision: 0.9668  recall: 0.9908  f1: 0.9786
 [Epoch 5]
-  accuracy: 0.9500  precision: 0.9972  recall: 0.9345  f1: 0.9648
+  accuracy: 0.9462  precision: 0.9348  recall: 0.9961  f1: 0.9645
 [Epoch 6]
-  accuracy: 0.9645  precision: 0.9932  recall: 0.9581  f1: 0.9753
+  accuracy: 0.9741  precision: 0.9946  recall: 0.9699  f1: 0.9821
 [Epoch 7]
-  accuracy: 0.9654  precision: 0.9702  recall: 0.9830  f1: 0.9766
+  accuracy: 0.9597  precision: 0.9852  recall: 0.9594  f1: 0.9721
 [Epoch 8]
-  accuracy: 0.9760  precision: 0.9855  recall: 0.9817  f1: 0.9836
+  accuracy: 0.9481  precision: 0.9671  recall: 0.9620  f1: 0.9645
 [Epoch 9]
-  accuracy: 0.9280  precision: 0.9135  recall: 0.9961  f1: 0.9530
+  accuracy: 0.9606  precision: 0.9852  recall: 0.9607  f1: 0.9728
 [Epoch 10]
-  accuracy: 0.9741  precision: 0.9868  recall: 0.9777  f1: 0.9822
+  accuracy: 0.9664  precision: 0.9828  recall: 0.9712  f1: 0.9769
 [Epoch 11]
-  accuracy: 0.9645  precision: 0.9986  recall: 0.9528  f1: 0.9752
+  accuracy: 0.9683  precision: 0.9777  recall: 0.9790  f1: 0.9784
 [Epoch 12]
-  accuracy: 0.9779  precision: 0.9793  recall: 0.9908  f1: 0.9850
-[Epoch 13]
-  accuracy: 0.9683  precision: 0.9644  recall: 0.9934  f1: 0.9787
-[Epoch 14]
-  accuracy: 0.9798  precision: 0.9806  recall: 0.9921  f1: 0.9863
-[Epoch 15]
-  accuracy: 0.9779  precision: 0.9907  recall: 0.9790  f1: 0.9848
-[Epoch 16]
-  accuracy: 0.9798  precision: 0.9882  recall: 0.9843  f1: 0.9862
-[Epoch 17]
-  accuracy: 0.9817  precision: 0.9895  recall: 0.9856  f1: 0.9875
-[Epoch 18]
-  accuracy: 0.9827  precision: 0.9882  recall: 0.9882  f1: 0.9882
-[Epoch 19]
-  accuracy: 0.9779  precision: 0.9920  recall: 0.9777  f1: 0.9848
-[Epoch 20]
-  accuracy: 0.9712  precision: 0.9959  recall: 0.9646  f1: 0.9800
-[Epoch 21]
-  accuracy: 0.9769  precision: 0.9920  recall: 0.9764  f1: 0.9841
-[Epoch 22]
-  accuracy: 0.9817  precision: 0.9882  recall: 0.9869  f1: 0.9875
-[Epoch 23]
-  accuracy: 0.9760  precision: 0.9960  recall: 0.9712  f1: 0.9834
-[Epoch 24]
-  accuracy: 0.9798  precision: 0.9907  recall: 0.9817  f1: 0.9862
+  accuracy: 0.9635  precision: 0.9879  recall: 0.9620  f1: 0.9748
 [Test]
-  accuracy: 0.7612  precision: 0.7236  recall: 1.0000  f1: 0.8396
+  accuracy: 0.7772  precision: 0.7427  recall: 0.9846  f1: 0.8467

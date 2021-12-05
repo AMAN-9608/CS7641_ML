@@ -14,7 +14,8 @@ TRAIN_DIR="../../data/train"
 TEST_DIR="../../data/test"
 OUTPUT_DIR="./results/"
 # OUTPUT_DIR="./output"
-BATCH_SIZE=128
+IMAGE_SIZE=512
+BATCH_SIZE=32
 TRAIN_EPOCHS=50
 VALID_TOLERANCE=5
 LEARNING_RATE=0.001
@@ -24,6 +25,7 @@ CUDA_VISIBLE_DEVICES=$1 python image_cx.py \
     --train_dir $TRAIN_DIR \
     --test_dir $TEST_DIR \
     --output_dir $OUTPUT_DIR \
+    --image_size $IMAGE_SIZE \
     --batch_size $BATCH_SIZE \
     --num_train_epochs $TRAIN_EPOCHS \
     --num_valid_tolerance $VALID_TOLERANCE \
