@@ -15,7 +15,7 @@ from transformers import (
 )
 from transformers.trainer_pt_utils import get_parameter_names
 
-from seqlbtoolkit.Eval import Metric
+from seqlbtoolkit.eval import Metric
 from .args import DCNNConfig
 from .data import ImageCxDataset
 from .model import DCNN

@@ -40,8 +40,12 @@ class DCNNArguments:
         default=0.2,
         metadata={'help': 'Validation ratio'}
     )
-    dropout_ratio: Optional[float] = field(
-        default=0.2,
+    conv_dropout: Optional[float] = field(
+        default=0.25,
+        metadata={'help': 'drop out ratio'}
+    )
+    fc_dropout: Optional[float] = field(
+        default=0.15,
         metadata={'help': 'drop out ratio'}
     )
     num_train_epochs: Optional[int] = field(
