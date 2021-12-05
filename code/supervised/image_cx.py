@@ -8,7 +8,7 @@ from datetime import datetime
 from src.args import DCNNArguments, DCNNConfig
 from src.data import ImageCxDataset
 from src.train import ImageCxTrainer
-from seqlbtoolkit.IO import set_logging, logging_args
+from seqlbtoolkit.io import set_logging, logging_args
 
 from transformers import (
     HfArgumentParser,
