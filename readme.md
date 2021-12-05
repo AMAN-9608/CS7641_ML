@@ -202,6 +202,63 @@ supervised learning approaches including support vector machines, random forest 
 
 The project was a great collaborative experience as it allowed us to work together in a team. We were able to directly apply what we have learnt in class while at the same time see the results of different methods that we decided to use. Working on implementing the code for our models first hand was an enriching experience, as it gave us a flavour of how to build and develop code in a collaborative manner while at the same time converting the theory material learnt from class and implementing them in practice. We also got some exposure into a typical machine learning project pipeline that is used in the industry. Working on this project in a collaborative manner as a team was an extremely educational experience and we are grateful for being given the opportunity to do so.
 
+## Final
+
+### Methods
+
+#### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
+
+
+For the supervised method, we currently target the binary image classification task: has pneumonia or not.
+To address this issue, we use a deep convolutional neural network (DCNN) with the residual connection that alleviates the gradient vanishing problem.
+The model contains nine convolutional layers, which are put into three groups.
+
+The first layer of each group doubles the number of the channels of the convolutional kernel, which is maintained by the following two layers.
+A residual connection links the input and output of those two layers with addition operation.
+One exception is the very first convolutional layer, which takes the one-channel input and produces a 32-channel output.
+At the end of each group, we adopt a 2*2 max polling layer with stride size 2 to reduce the image resolution by half.
+
+The output of the convolutional groups is flattened and followed by three fully connected layers.
+The output of the last fully connected layer is 2-dimensional, which matches the number of classes.
+
+For each 2d convolution block, we apply a dropout layer with dropout retio 0.25 to reduce overfitting.
+For the fully connected layers, the dropout ratio is 0.15.
+
+Different from what has been reported in the midterm report, the images are converted to 512*512 pixels with only one luminance channel before being fed into the model.
+The larger model input provides the model with more details and potentially improves its performance on the test set.
+We are stil using a 5-fold cross-validation with validation set randomly selected from the training set in each epoch.
+We also use early stopping method to prevent overfitting.
+The criteria to conduct the early stopping is validation F1 score.
+
+### Results
+
+#### Supervised Approach
+
+The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with 0.2 warmup ratio.
+
+In the midterm report, we trained the model for 100 epochs with batch size 128.
+The results are presented below:
+
+|          | Precision | Recall |  F1    | Accuracy |
+-----------|-----------|--------|--------|----------
+Validation | 0.9895    | 0.9895 | 0.9895 | 0.9846   
+Test       | 0.7312    | 0.9974 | 0.8438 | 0.7692   
+
+As the input image size increases, we use a smaller batch size 32 and less epochs to train the model.
+With the updated model structure and hyper-parameters, the results of our current model are:
+
+|          | Precision | Recall |  F1    | Accuracy |
+-----------|-----------|--------|--------|----------
+Validation | 0.9946    | 0.9699 | 0.9821 | 0.9741   
+Test       | 0.7427    | 0.9846 | 0.8467 | 0.7772   
+
+Although the model performs a bit worse on the validation set, the test scores show that the improvement somewhat alleviate the overfitting issue.
+The performance on the validation set is shown below:
+
+![](./figures/sup-eval.png)
+
+#### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
+
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
 Fischer, Peter, et al. [Unsupervised Learning for Robust Respiratory Signal Estimation from X-Ray Fluoroscopy](https://doi.org/10.1109/tmi.2016.2609888) <br>
