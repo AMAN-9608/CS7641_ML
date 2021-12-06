@@ -7,13 +7,17 @@ import tqdm
 
 datapath = os.path.join(os.path.join("..", ".."), "data")
 
-def load_data(size = (400, 400)):
+def load_data(size = (400, 400), set='train', testing=False):
     # load training data
-    training_path = os.path.join (datapath, 'train')
+    training_path = os.path.join (datapath, set)
     pn_path = os.path.join(training_path, "PNEUMONIA")
     n_path = os.path.join(training_path, "NORMAL")
     filelist_p = [f for f in os.listdir(pn_path) if os.path.isfile(os.path.join(pn_path, f))]
     filelist_n = [f for f in os.listdir(n_path) if os.path.isfile(os.path.join(n_path, f))]
+
+    if testing:
+        filelist_n = filelist_n[:100]
+        filelist_p = filelist_p[:100]
 
     # Transform for resizing, greyscaling, and normalizing
     T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
