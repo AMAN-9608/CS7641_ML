@@ -206,6 +206,33 @@ The project was a great collaborative experience as it allowed us to work togeth
 
 ### Methods
 
+#### Unsupervised Approach: Principal Component Analysis
+<p align="justify">
+For the unsupervised method, the goal was to utilize principal component analysis (PCA) for dimension reduction. Images can be represented as 2 dimensional matrices of intensities (for grayscale images), and therefore a single image can be represented as a linearized vector of it's pixel values. Storing thousands of such feature vectors for whole images in memory is infeasible, as each image consists of thousands of pixels. We use PCA to reduce the dimensionality of this dataset, making the process of loading and learning from these images tractable. This will allow us to dramatically speed up our approach while also preserving much of the information for our unsupervised algorithm. 
+</p>
+<p align="justify">
+A challenge we encountered was that the dataset of x-ray images were of various sizes. So the first step was to resize, convert to grayscale, and normalize all the input images. This was achieved via PyTorch's transforms operations:
+</p>
+
+```
+T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
+                        transforms.ToTensor(),
+                        transforms.Resize(size),
+                        transforms.Normalize(0.5, 0.5)])
+```
+
+<p align="justify">
+The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain the first 100 principal components which captured 85.99% of the variance. Given the volume of images we were working with, this decision made sense as it had an optimal balance between size and explained variance.
+</p>
+
+#### Unsupervised Approach: K-Means
+<p align="justify">
+As a first pass, we converted the output variable to be binary (as 'Pneumonia' or 'Normal') instead of using all three labels. Then we took the first 100 principal components obtained after applying PCA on the given training dataset and applied a k-means clustering with number of clusters, <img src="https://render.githubusercontent.com/render/math?math=k = 2">. The idea here is to roughly look for two different clusters pertaining to pneumonia or normal, corresponding to our PCA transformed dataset. 
+</p>
+<p align="justify">
+We used the generated k-means model to predict the labels for the reserved test set as an evaluation. Since which label (0 or 1) corresponds to normal or pneumonia, we compared accuracy for both permutation and took the highests score. 
+</p>
+
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
 
 
@@ -221,7 +248,7 @@ At the end of each group, we adopt a 2*2 max polling layer with stride size 2 to
 The output of the convolutional groups is flattened and followed by three fully connected layers.
 The output of the last fully connected layer is 2-dimensional, which matches the number of classes.
 
-For each 2d convolution block, we apply a dropout layer with dropout retio 0.25 to reduce overfitting.
+For each 2d convolution block, we apply a dropout layer with dropout ratio 0.25 to reduce overfitting.
 For the fully connected layers, the dropout ratio is 0.15.
 
 Different from what has been reported in the midterm report, the images are converted to 512*512 pixels with only one luminance channel before being fed into the model.
