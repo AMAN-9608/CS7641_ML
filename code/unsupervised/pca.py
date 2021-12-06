@@ -33,12 +33,14 @@ def pca_pipeline(resize=(400,400), n_comp=100, save=True):
         full_save_path = os.path.join(save_dir, train_filename)
         with open(full_save_path, 'wb') as f:
             np.save(f, train_pca_trans)
+        print("Train data saved to: {}".format(full_save_path))
+
 
         test_filename = "pca_data_{}_{}_{}_{}.npy".format(resize[0], resize[1], n_comp, "test")
         full_save_path = os.path.join(save_dir, test_filename)
         with open(full_save_path, 'wb') as f:
             np.save(f, test_pca_trans)
-        print("Data saved to: {}".format(full_save_path))
+        print("Test data saved to: {}".format(full_save_path))
     return train_pca_trans,test_pca_trans
 
 if __name__ == "__main__":

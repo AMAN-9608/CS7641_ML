@@ -14,25 +14,34 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import accuracy_score
 import joblib
 
-def split_data(data_path):
-    pca_data = np.load(data_path)
+def split_data(train_path, test_path):
+    train_pca_data = np.load(train_path)
+    np.random.shuffle(train_pca_data)
+    x_train = train_pca_data[:, :-1]
+    y_train = train_pca_data[:,-1]
 
-    y_labels = pca_data[:, -1]
-    y_labels[y_labels != 0] = 1
+    test_pca_data = np.load(test_path)
+    np.random.shuffle(test_pca_data)
+    x_test = test_pca_data[:, :-1]
+    y_test = test_pca_data[:,-1]
+    
+#     y_labels = pca_data[:, -1]
+#     y_labels[y_labels != 0] = 1
 
-    x = pca_data[:, 0:-1]
+#     x = pca_data[:, 0:-1]
 
-    x_train, x_test, y_train, y_test = train_test_split(
-        x, y_labels, test_size=0.2, random_state=614, shuffle=True, stratify=y_labels)
+#     x_train, x_test, y_train, y_test = train_test_split(
+#         x, y_labels, test_size=0.2, random_state=614, shuffle=True, stratify=y_labels)
 
     return x_train, x_test, y_train, y_test
 
 
 if __name__ == "__main__":
 
-    data_path = os.path.join(os.path.join("..", ".."), "data/pca_transformed_data/pca_data_300_300_100.npy")
+    train_data_path = os.path.join(os.path.join("..", ".."), "data/pca_transformed_data/pca_data_400_400_100_train.npy")
+    test_data_path = os.path.join(os.path.join("..", ".."), "data/pca_transformed_data/pca_data_400_400_100_test.npy")
 
-    x_train, x_test, y_train, y_test = split_data(data_path)
+    x_train, x_test, y_train, y_test = split_data(train_data_path, test_data_path)
     # SVM grid search CV
     svm_parameters = {'kernel': ('linear', 'rbf'), 'C': [0.01, 0.1, 1.0]}
 
@@ -54,7 +63,7 @@ if __name__ == "__main__":
 
     # Logistic regression CV
 
-    clf_lg = LogisticRegression(random_state=614)
+    clf_lg = LogisticRegression(random_state=614, max_iter=1000)
     scores = cross_val_score(clf_lg, x_train, y_train, cv=5)
     print("%0.2f accuracy with a standard deviation of %0.2f" % (scores.mean(), scores.std()))
 

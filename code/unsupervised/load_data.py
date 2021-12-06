@@ -43,7 +43,7 @@ def load_data(size = (400, 400), set='train', testing=False):
     images_n = np.concatenate((images_n, np.zeros((images_n.shape[0], 1))), axis=1)
 
     # pneumonia labels
-    labels = np.array([1 if "bacteria" in f else 2 for f in filelist_p]).reshape((-1, 1))
+    labels = np.array([1 if "bacteria" in f else 1 for f in filelist_p]).reshape((-1, 1))
     images_pn = np.concatenate((images_pn, labels), axis=1)
 
     total_data = np.concatenate((images_pn, images_n), axis=0)
