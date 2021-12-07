@@ -309,11 +309,11 @@ The performance on the validation set is shown below:
 
 #### Supervised Classification : Using PCA components 
 
-<p align="justify">
+
   
 Model performance metrics on test and validation datasets are shown in the table below :  
   
-### Test Data
+#### Test Data
   
 <table>
 <tbody>
@@ -345,7 +345,8 @@ Model performance metrics on test and validation datasets are shown in the table
 </table>
 
 
-### Validation Data
+#### Validation Data
+
 <table>
 <tbody>
 <tr>
@@ -376,7 +377,7 @@ Model performance metrics on test and validation datasets are shown in the table
 </table>
 
   
-</p>
+
 <p align="justify">
 From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics.
 However, they perform poorly than the DCNN model. This can be attributed to the inability of traditional machine learning models to capture the spatial information inherently present in images which can be critical to accurately classifying images as viral or normal. 
