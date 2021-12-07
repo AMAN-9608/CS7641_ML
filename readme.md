@@ -18,7 +18,7 @@ A qualified doctor then examines the X-ray for the signs of Pneumonia. Due to th
 
 ### Problem Definition
 <p align="justify">
-The problem statement is to build a machine learning algorithm that accurately predicts whether the patient has No pneumonia, Bacterial Pneumonia, or Viral Pneumonia, based on their Chest X-ray.</p>
+The problem statement is to build a machine learning algorithm that accurately predicts whether the patient has Pneumonia or not, based on their Chest X-ray.</p>
 
 ### Methods
 
