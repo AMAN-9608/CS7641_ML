@@ -195,6 +195,25 @@ From the table above, we can see that Logistic Regression and Support Vector cla
 
 ## Final
 
+### Introduction
+<p align="justify">
+Pneumonia is an infection of one or both lungs in which the air sacs fill with pus and other liquid, and it is caused by bacteria, viruses, or fungi. Each year, pneumonia affects 450 million people globally and results in about 4 million deaths. Diagnosis is often based on symptoms and physical examination, and a Chest X-ray is a screening technique, which may help confirm the diagnosis.</p>
+<p align="center">
+<img width="400" height="196" src="https://i.imgur.com/jZqpV51.png">
+</p>
+<p align = "center">
+<font size="1">Illustrative Example of Chest X-Ray in Patients with No pneumonia, Bacterial Pneumonia and Viral Pneumonia</font>
+</p>
+<p align="justify">
+A qualified doctor then examines the X-ray for the signs of Pneumonia. Due to the subjectivity and manual bias of interpretations, the test results are not widely comparable. The current need is to establish a simple, automated, and objective screening technique that can adapt to a range of health and social service settings and would enable early detection of Pneumonia.</p>
+
+### Problem Definition
+<p align="justify">
+The problem statement is to build a machine learning algorithm that accurately predicts whether the patient has Pneumonia or not, based on their Chest X-ray.</p>
+
+### Data Collection
+This project was inspired by a [Kaggle](https://www.kaggle.com/) dataset, available at [this link](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia). The dataset contains almost 6,000 black and white images of chest x-rays. It is split into three parts: a train, test, and validation folder. Most of the images in the dataset are of normal chest x-rays, which do not contain pneumonia. The images that do contain pneumonia are split into viral and bacterial pneumonia. 
+
 ### Methods
 
 #### Unsupervised Approach: Principal Component Analysis
