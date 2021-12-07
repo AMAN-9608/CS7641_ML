@@ -309,7 +309,7 @@ The performance on the validation set is shown below:
 
 #### Supervised Classification : Using PCA components 
 
-Model performance metrics on test and validation datasets are shown in the table below :  
+Model performance metrics on test and validation datasets are shown in the table below  
 
   
 ### Test Data
