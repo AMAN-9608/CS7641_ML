@@ -254,6 +254,14 @@ In addition to our unsupervised learning approach (k-means), we intend to apply 
 
 ### Results
 
+#### Unsupervised Approach
+
+We achieved an accuracy score of <img src="https://render.githubusercontent.com/render/math?math=0.582">, with the following confusion matrix:
+
+![](./figures/kmeans_confusionmatrix_test.png)
+
+While this looks very poor, we recall that in unsupervised learning the true and predicted labels might not match. We can take a predicted label of 0 to be a true label of 1, and vice versa. Now we can see that the unsupervised learning model performs moderately well on both the pneumonia and normal images. However an overall accuracy of just 58.2% is not nearly good enough for an application such as this, and thus it makes more sense to proceed with a supervised learning approach.
+
 #### Supervised Approach
 
 The model is trained with mini-batch gradient descent, Adam optimizer and linear learning rate scheduler with 0.2 warmup ratio.
@@ -278,8 +286,6 @@ Although the model performs a bit worse on the validation set, the test scores s
 The performance on the validation set is shown below:
 
 ![](./figures/sup-eval.png)
-
-#### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
 
 
 ### Conclusion
