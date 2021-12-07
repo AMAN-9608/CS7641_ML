@@ -291,10 +291,10 @@ The performance on the validation set is shown below:
 #### Supervised Classification : Using PCA components 
 
 <p align="justify">
-We used the first 100 principal components to build supervised classification models in order to classify the images as ‘normal’ or ‘pneumonia’. Reducing the number of features in the flattened image (400 x 400) from 1,60,000 to 100 with PCA will help reduce overfitting on our training dataset of 4172 images.
-</p>
-<p align="justify">
-Support Vector Classifier, Random Forest Classifier and Logistic Regression were the models which we tested on our training dataset which had dimensions of 4172 x 100. A grid search based 5-fold cross validation routine was used to fine-tune the hyperparameters of these models. Model performance metrics on test dataset are shown in the table below :  
+  
+Model performance metrics on test and validation datasets are shown in the table below :  
+  
+## Test Data
 <table>
 <tbody>
 <tr>
@@ -324,10 +324,42 @@ Support Vector Classifier, Random Forest Classifier and Logistic Regression were
 </tbody>
 </table>
 
+
+## Validation Data
+<table>
+<tbody>
+<tr>
+<td>Model</td>
+<td>Precision</td>
+<td>Recall</td>
+<td>Accuracy Score</td>
+</tr>
+<tr>
+<td>SVM</td>
+<td>1</td>
+<td>0.8</td>
+<td>0.875</td>
+</tr>
+<tr>
+<td>RF</td>
+<td>1</td>
+<td>0.667</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>Logistic</td>
+<td>1</td>
+<td>0.8</td>
+<td>0.875</td>
+</tr>
+</tbody>
+</table>
+
   
 </p>
 <p align="justify">
-From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. 
+From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics.
+However, they perform poorly than the DCNN model. This can be attributed to the inability of traditional machine learning models to capture the spatial information inherently present in images which can be critical to accurately classifying images as viral or normal. 
 </p>
 
 
