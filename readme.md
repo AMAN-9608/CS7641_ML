@@ -288,6 +288,49 @@ The performance on the validation set is shown below:
 ![](./figures/sup-eval.png)
 
 
+#### Supervised Classification : Using PCA components 
+
+<p align="justify">
+We used the first 100 principal components to build supervised classification models in order to classify the images as ‘normal’ or ‘pneumonia’. Reducing the number of features in the flattened image (400 x 400) from 1,60,000 to 100 with PCA will help reduce overfitting on our training dataset of 4172 images.
+</p>
+<p align="justify">
+Support Vector Classifier, Random Forest Classifier and Logistic Regression were the models which we tested on our training dataset which had dimensions of 4172 x 100. A grid search based 5-fold cross validation routine was used to fine-tune the hyperparameters of these models. Model performance metrics on test dataset are shown in the table below :  
+<table>
+<tbody>
+<tr>
+<td>Model</td>
+<td>Precision</td>
+<td>Recall</td>
+<td>Accuracy Score</td>
+</tr>
+<tr>
+<td>SVM</td>
+<td>0.9820</td>
+<td>0.7158</td>
+<td>0.7451</td>
+</tr>
+<tr>
+<td>RF</td>
+<td>0.9923</td>
+<td>0.6849</td>
+<td>0.7099</td>
+</tr>
+<tr>
+<td>Logistic</td>
+<td>0.9846</td>
+<td>0.7218</td>
+<td>0.7532</td>
+</tr>
+</tbody>
+</table>
+
+  
+</p>
+<p align="justify">
+From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. 
+</p>
+
+
 ### Conclusion
 
 With the recent COVID-19 outbreak, we have seen a rise in the number of cases of pneumonia observed in adults, especially senior citizens and those who have prior medical conditions. In times like these, developing a pneumonia detection model with quick and accurate results has been extremely gratifying experience as it allowed us to contribute in fight against the pandemic in our own small way. 
