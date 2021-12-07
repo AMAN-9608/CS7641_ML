@@ -12,6 +12,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
 import joblib
 
 def split_data(train_path, test_path):
@@ -63,28 +64,36 @@ if __name__ == "__main__":
 
     # Logistic regression CV
 
-    clf_lg = LogisticRegression(random_state=614, max_iter=1000)
+    clf_lg = LogisticRegression(random_state=614, max_iter=1000).fit(x_train, y_train)
     scores = cross_val_score(clf_lg, x_train, y_train, cv=5)
-    print("%0.2f accuracy with a standard deviation of %0.2f" % (scores.mean(), scores.std()))
+    print("logistic regression: %0.2f accuracy with a standard deviation of %0.2f" % (scores.mean(), scores.std()))
 
     print("SVM accuracy scores : - ")
 
     print(confusion_matrix(svm_cv.predict(x_test), y_test))
-    print(precision_score(svm_cv.predict(x_test), y_test), recall_score(svm_cv.predict(x_test), y_test),
-          accuracy_score(svm_cv.predict(x_test), y_test))
+    print("\tprecision:\t ", precision_score(svm_cv.predict(x_test), y_test))
+    print("\trecall:\t ", recall_score(svm_cv.predict(x_test), y_test))
+    print("\taccuracy:\t ", accuracy_score(svm_cv.predict(x_test), y_test))
+    print("\tf1:\t ", f1_score(svm_cv.predict(x_test), y_test))
+    print()
 
     print("RF accuracy scores : - ")
 
     print(confusion_matrix(gscv_rfc.predict(x_test), y_test))
-    print(precision_score(gscv_rfc.predict(x_test), y_test), recall_score(gscv_rfc.predict(x_test), y_test),
-          accuracy_score(gscv_rfc.predict(x_test), y_test))
+    print("\tprecision:\t ", precision_score(gscv_rfc.predict(x_test), y_test))
+    print("\trecall:\t ", recall_score(gscv_rfc.predict(x_test), y_test))
+    print("\taccuracy:\t ", accuracy_score(gscv_rfc.predict(x_test), y_test))
+    print("\tf1:\t ", f1_score(gscv_rfc.predict(x_test), y_test))
+    print()
 
     print("Logistic accuracy scores :- ")
 
-    print(confusion_matrix(clf_lg.fit(x_train, y_train).predict(x_test), y_test))
-    print(precision_score(clf_lg.fit(x_train, y_train).predict(x_test), y_test),
-          recall_score(clf_lg.fit(x_train, y_train).predict(x_test), y_test),
-          accuracy_score(clf_lg.fit(x_train, y_train).predict(x_test), y_test))
+    print(confusion_matrix(clf_lg.predict(x_test), y_test))
+    print("\tprecision:\t ", precision_score(clf_lg.predict(x_test), y_test))
+    print("\trecall:\t ", recall_score(clf_lg.predict(x_test), y_test))
+    print("\taccuracy:\t ", accuracy_score(clf_lg.predict(x_test), y_test))
+    print("\tf1:\t ", f1_score(clf_lg.predict(x_test), y_test))
+    print()
 
     svm_save_path = "svm_model.sav"
 
