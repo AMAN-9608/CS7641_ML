@@ -248,6 +248,10 @@ We are stil using a 5-fold cross-validation with validation set randomly selecte
 We also use early stopping method to prevent overfitting.
 The criteria to conduct the early stopping is validation F1 score.
 
+#### Supervised Classification : Using PCA components 
+
+In addition to our unsupervised learning approach (k-means), we intend to apply PCA to the dataset with the intent of using more supervised learning approaches. Using PCA allows us to use some of the standard algorithms that otherwise would be intractable with large images that contain several thousand input pixels. We select the first 100 principal components, maintaining 85.99% of variance, for this approach. We will use Support Vector Machine Classifier (SVM), Random Forest Classifier (RF) and Logistic Regression and use 5-fold cross validation to tune the hyperparameters and optimize the models. 
+
 ### Results
 
 #### Supervised Approach
