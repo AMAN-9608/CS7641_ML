@@ -193,18 +193,36 @@ Support Vector Classifier, Random Forest Classifier and Logistic Regression were
 From the table above, we can see that Logistic Regression and Support Vector classifier outperform Random forest classifier in recall and accuracy score metrics. As a next step, we will re-train these models on features obtained via t-sne; another dimensionality reduction technique to select the best feature reduction method for our dataset. We also plan to develop a web based interactive framework to deploy our trained models and classify new incoming images as normal or viral.
 </p>
 
-### Conclusion
-
-With the recent COVID-19 outbreak, we have seen a rise in the number of cases of pneumonia observed in adults, especially senior citizens and those who have prior medical conditions. In times like these, developing a pneumonia detection model with quick and accurate results has been extremely gratifying experience as it allowed us to contribute in fight against the pandemic in our own small way. 
-
-Throughout the modelling process, we used a combination of supervised and unsupervised approaches in order to come up with the best classification model for the analysis. We used PCA to transform and visualize the data following which we tried to use clustering to identify distinct clusters for normal and pneumonia x-rays. Following this, we used multiple 
-supervised learning approaches including support vector machines, random forest and logistic regression. However, as we had hypothesized, the best model for an image classification task such as this turned out to be the Deep Convolutional Neural Networks (DCNN) model, which is the final model that we ended up using.
-
-The project was a great collaborative experience as it allowed us to work together in a team. We were able to directly apply what we have learnt in class while at the same time see the results of different methods that we decided to use. Working on implementing the code for our models first hand was an enriching experience, as it gave us a flavour of how to build and develop code in a collaborative manner while at the same time converting the theory material learnt from class and implementing them in practice. We also got some exposure into a typical machine learning project pipeline that is used in the industry. Working on this project in a collaborative manner as a team was an extremely educational experience and we are grateful for being given the opportunity to do so.
-
 ## Final
 
 ### Methods
+
+#### Unsupervised Approach: Principal Component Analysis
+<p align="justify">
+For the unsupervised method, the goal was to utilize principal component analysis (PCA) for dimension reduction. Images can be represented as 2 dimensional matrices of intensities (for grayscale images), and therefore a single image can be represented as a linearized vector of it's pixel values. Storing thousands of such feature vectors for whole images in memory is infeasible, as each image consists of thousands of pixels. We use PCA to reduce the dimensionality of this dataset, making the process of loading and learning from these images tractable. This will allow us to dramatically speed up our approach while also preserving much of the information for our unsupervised algorithm. 
+</p>
+<p align="justify">
+A challenge we encountered was that the dataset of x-ray images were of various sizes. So the first step was to resize, convert to grayscale, and normalize all the input images. This was achieved via PyTorch's transforms operations:
+</p>
+
+```
+T = transforms.Compose([transforms.Grayscale(num_output_channels=1),
+                        transforms.ToTensor(),
+                        transforms.Resize(size),
+                        transforms.Normalize(0.5, 0.5)])
+```
+
+<p align="justify">
+The next step was to convert these images to <img src="https://render.githubusercontent.com/render/math?math=400 \times 400"> before applying PCA. Once that was done, we decided to retain the first 100 principal components which captured 85.99% of the variance. Given the volume of images we were working with, this decision made sense as it had an optimal balance between size and explained variance.
+</p>
+
+#### Unsupervised Approach: K-Means
+<p align="justify">
+As a first pass, we converted the output variable to be binary (as 'Pneumonia' or 'Normal') instead of using all three labels. Then we took the first 100 principal components obtained after applying PCA on the given training dataset and applied a k-means clustering with number of clusters, <img src="https://render.githubusercontent.com/render/math?math=k = 2">. The idea here is to roughly look for two different clusters pertaining to pneumonia or normal, corresponding to our PCA transformed dataset. 
+</p>
+<p align="justify">
+We used the generated k-means model to predict the labels for the reserved test set as an evaluation. Since which label (0 or 1) corresponds to normal or pneumonia, we compared accuracy for both permutation and took the highests score. 
+</p>
 
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
 
@@ -221,7 +239,7 @@ At the end of each group, we adopt a 2*2 max polling layer with stride size 2 to
 The output of the convolutional groups is flattened and followed by three fully connected layers.
 The output of the last fully connected layer is 2-dimensional, which matches the number of classes.
 
-For each 2d convolution block, we apply a dropout layer with dropout retio 0.25 to reduce overfitting.
+For each 2d convolution block, we apply a dropout layer with dropout ratio 0.25 to reduce overfitting.
 For the fully connected layers, the dropout ratio is 0.15.
 
 Different from what has been reported in the midterm report, the images are converted to 512*512 pixels with only one luminance channel before being fed into the model.
@@ -229,6 +247,10 @@ The larger model input provides the model with more details and potentially impr
 We are stil using a 5-fold cross-validation with validation set randomly selected from the training set in each epoch.
 We also use early stopping method to prevent overfitting.
 The criteria to conduct the early stopping is validation F1 score.
+
+#### Supervised Classification : Using PCA components 
+
+In addition to our unsupervised learning approach (k-means), we intend to apply PCA to the dataset with the intent of using more supervised learning approaches. Using PCA allows us to use some of the standard algorithms that otherwise would be intractable with large images that contain several thousand input pixels. We select the first 100 principal components, maintaining 85.99% of variance, for this approach. We will use Support Vector Machine Classifier (SVM), Random Forest Classifier (RF) and Logistic Regression and use 5-fold cross validation to tune the hyperparameters and optimize the models. 
 
 ### Results
 
@@ -258,6 +280,17 @@ The performance on the validation set is shown below:
 ![](./figures/sup-eval.png)
 
 #### Supervised Approach: Deep Convolutional Neural Network with Residual Connection
+
+
+### Conclusion
+
+With the recent COVID-19 outbreak, we have seen a rise in the number of cases of pneumonia observed in adults, especially senior citizens and those who have prior medical conditions. In times like these, developing a pneumonia detection model with quick and accurate results has been extremely gratifying experience as it allowed us to contribute in fight against the pandemic in our own small way. 
+
+Throughout the modelling process, we used a combination of supervised and unsupervised approaches in order to come up with the best classification model for the analysis. We used PCA to transform and visualize the data following which we tried to use clustering to identify distinct clusters for normal and pneumonia x-rays. Following this, we used multiple 
+supervised learning approaches including support vector machines, random forest and logistic regression. However, as we had hypothesized, the best model for an image classification task such as this turned out to be the Deep Convolutional Neural Networks (DCNN) model, which is the final model that we ended up using.
+
+The project was a great collaborative experience as it allowed us to work together in a team. We were able to directly apply what we have learnt in class while at the same time see the results of different methods that we decided to use. Working on implementing the code for our models first hand was an enriching experience, as it gave us a flavour of how to build and develop code in a collaborative manner while at the same time converting the theory material learnt from class and implementing them in practice. We also got some exposure into a typical machine learning project pipeline that is used in the industry. Working on this project in a collaborative manner as a team was an extremely educational experience and we are grateful for being given the opportunity to do so.
+
 
 ### References
 Raza, Khalid, and Nripendra Kumar Singh. [A Tour of Unsupervised Deep Learning for Medical Image Analysis](https://doi.org/10.2174/1573405617666210127154257)<br>
