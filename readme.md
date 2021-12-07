@@ -294,7 +294,8 @@ The performance on the validation set is shown below:
   
 Model performance metrics on test and validation datasets are shown in the table below :  
   
-## Test Data
+### Test Data
+  
 <table>
 <tbody>
 <tr>
@@ -325,7 +326,7 @@ Model performance metrics on test and validation datasets are shown in the table
 </table>
 
 
-## Validation Data
+### Validation Data
 <table>
 <tbody>
 <tr>
